@@ -3,6 +3,7 @@ import * as Survey from "survey-react";
 import "survey-react/survey.css";
 import { Pie, Line } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
+import { Card } from "@mui/material";
 
 Chart.register(...registerables);
 
@@ -139,58 +140,62 @@ class SurveyCreator extends React.Component {
     var model = new Survey.Model(data);
     model.completedHtml = "<span></span>";
     return (
-      <div>
+      <>
         {!isCompletesurvey && (
           <Survey.Survey onComplete={this.onComplete} model={model} />
         )}
         {isCompletesurvey && (
-          <div>
-            <Pie
-              data={this.piechartdata}
-              options={{
-                legend: {
-                  display: true,
-                  position: "bottom",
-                },
-              }}
-            />
-            <Line
-              data={this.linePointChart}
-              options={{
-                responsive: true,
-                legend: {
-                  display: false,
-                },
-                elements: {
-                  point: {
-                    pointStyle: "circle",
+          <div className="chart-part">
+            <Card  className="dashboard-chart-card mt-3"> 
+              <Pie
+                data={this.piechartdata}
+                options={{
+                  legend: {
+                    display: true,
+                    position: "bottom",
                   },
-                },
-                scales: {
-                  xAxes: [
-                    {
-                      gridLines: {
-                        drawOnChartArea: false,
-                      },
+                }}
+              />
+            </Card>
+            <Card  className="dashboard-chart-card mt-3">
+              <Line
+                data={this.linePointChart}
+                options={{
+                  responsive: true,
+                  legend: {
+                    display: false,
+                  },
+                  elements: {
+                    point: {
+                      pointStyle: "circle",
                     },
-                  ],
-                  yAxes: [
-                    {
-                      ticks: {
-                        beginAtZero: true,
-                        stepSize: 20,
+                  },
+                  scales: {
+                    xAxes: [
+                      {
+                        gridLines: {
+                          drawOnChartArea: false,
+                        },
                       },
-                      gridLines: {
-                        drawOnChartArea: false,
+                    ],
+                    yAxes: [
+                      {
+                        ticks: {
+                          beginAtZero: true,
+                          stepSize: 20,
+                        },
+                        gridLines: {
+                          drawOnChartArea: false,
+                        },
                       },
-                    },
-                  ],
-                },
-              }}
-            />
+                    ],
+                  },
+                }}
+              />
+            </Card>
           </div>
         )}
-      </div>
+      </>
     );
   }
 }
