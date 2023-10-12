@@ -1,0 +1,62 @@
+{
+  "startingScenario": {
+    "costComponents": [
+      {
+        "title": "Compute",
+        "component": "Compute",
+        "quantity": 150,
+        "quantityUnit": "instances",
+        "avgPrice": 0.45,
+        "quantityCycle": null,
+        "priceCycle": "hour",
+        "priceUnit": null,
+        "colorCode": "rgb(5, 28, 44)"
+      },
+      {
+        "title": "Storage",
+        "component": "Storage",
+        "quantity": 125,
+        "quantityUnit": "TB",
+        "avgPrice": 0.1,
+        "quantityCycle": null,
+        "priceCycle": "month",
+        "priceUnit": "GB",
+        "colorCode": "rgb(0, 169, 244)"
+      },
+      {
+        "title": "Network",
+        "component": "Network",
+        "quantity": 1.5,
+        "quantityUnit": "TB",
+        "quantityCycle": "day",
+        "avgPrice": 0.1,
+        "priceCycle": null,
+        "priceUnit": "GB",
+        "colorCode": "rgb(3, 75, 111)"
+      },
+      {
+        "title": "Managed Database",
+        "component": "Managed",
+        "quantity": 14,
+        "quantityUnit": "instances",
+        "quantityCycle": null,
+        "avgPrice": 0.8,
+        "priceCycle": "hour",
+        "priceUnit": null,
+        "colorCode": "rgb(2, 122, 177)"
+      },
+      {
+        "title": "Other services",
+        "component": "Other",
+        "quantity": null,
+        "quantityUnit": null,
+        "quantityCycle": null,
+        "avgPrice": null,
+        "priceCycle": null,
+        "priceUnit": null,
+        "colorCode": "rgb(208, 208, 208)",
+        "totalCost": 100000
+      }
+    ]
+  }
+}
