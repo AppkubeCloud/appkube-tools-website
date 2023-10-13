@@ -87,7 +87,7 @@ class SurveyCreator extends React.Component {
           Object.keys(sender.data).forEach((key) => {
             for (let p = 0; p < sender.data[key].length; p++) {
               let surveyData = sender.data[key][p];
-              if (data == surveyData) {
+              if (data === surveyData) {
                 percentage.total += k + 1;
               }
             }
@@ -145,8 +145,8 @@ class SurveyCreator extends React.Component {
           <Survey.Survey onComplete={this.onComplete} model={model} />
         )}
         {isCompletesurvey && (
-          <div className="chart-part">
-            <Card  className="dashboard-chart-card mt-3"> 
+          <>
+            <Card  className="survey-chart-card mt-3"> 
               <Pie
                 data={this.piechartdata}
                 options={{
@@ -157,7 +157,7 @@ class SurveyCreator extends React.Component {
                 }}
               />
             </Card>
-            <Card  className="dashboard-chart-card mt-3">
+            <Card  className="survey-chart-card mt-3">
               <Line
                 data={this.linePointChart}
                 options={{
@@ -193,7 +193,7 @@ class SurveyCreator extends React.Component {
                 }}
               />
             </Card>
-          </div>
+          </>
         )}
       </>
     );

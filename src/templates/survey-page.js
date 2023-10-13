@@ -7,9 +7,7 @@ export const SurveyTemplate = () => {
   return (
     <section className="section">
       <div className="container content">
-        <div className="">
           <SurveyCreator data={data} />
-        </div>
       </div>
     </section>
   );
