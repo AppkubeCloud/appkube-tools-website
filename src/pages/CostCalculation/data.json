@@ -59,7 +59,21 @@
         "quantityCycle": null,
         "priceCycle": "month",
         "priceUnit": "GB",
-        "colorCode": "rgb(0, 169, 244)"
+        "colorCode": "rgb(0, 169, 244)",
+        "optimizationOptions": {
+          "reducingStorageBuffer": {
+            "title": "Reducing storage buffer",
+            "description": "(eg, deprovisioning unused storage)",
+            "amount": 14.75,
+            "effectUnit": "instance"
+          },
+          "tierStorageBasedOnRequirements": {
+            "title": "Tier storage based on requirements",
+            "description": "(eg, using lower-tier or different storage service when feasible)",
+            "amount": 0.01,
+            "effectUnit": "price"
+          }
+        }
       },
       {
         "title": "Network",
@@ -70,7 +84,21 @@
         "avgPrice": 0.1,
         "priceCycle": null,
         "priceUnit": "GB",
-        "colorCode": "rgb(3, 75, 111)"
+        "colorCode": "rgb(3, 75, 111)",
+        "optimizationOptions": {
+          "reduceInterRegion": {
+            "title": "Reduce inter-region/internet traffic",
+            "description": "(eg, by using more efficient routing and connectivity options)",
+            "amount": 0.15,
+            "effectUnit": "instance"
+          },
+          "leveragingCostEffectiveNetworkServices": {
+            "title": "Leveraging cost-effective network services",
+            "description": "(eg, using direct connect when possible)",
+            "amount": 0.01,
+            "effectUnit": "price"
+          }
+        }
       },
       {
         "title": "Managed Database",
@@ -81,7 +109,21 @@
         "avgPrice": 0.8,
         "priceCycle": "hour",
         "priceUnit": null,
-        "colorCode": "rgb(2, 122, 177)"
+        "colorCode": "rgb(2, 122, 177)",
+        "optimizationOptions": {
+          "adoptingLeanProvisioningPractices": {
+            "title": "Adopting lean provisioning practices and rightsizing the managed-database instances",
+            "description": "Reduce buffer size and release unused capacity",
+            "amount": 1,
+            "effectUnit": "instance"
+          },
+          "leveragingSavingsPlan": {
+            "title": "Leveraging savings plan/reservations for managed-database service",
+            "description": "Cloud service providers would offer discounted rate in exchange for long-term commitment",
+            "amount": 1,
+            "effectUnit": "instance"
+          }
+        }
       },
       {
         "title": "Other services",

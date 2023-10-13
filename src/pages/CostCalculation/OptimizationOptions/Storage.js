@@ -1,24 +1,48 @@
 import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
+import calculateTotalCost from "../costCalculator";
 
 class Storage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataChange: true,
+      originalInstances: 0,
+      originalPrice: 0,
+      originalCalculatedAmount: 0,
+      optimizeAmounts: {},
+      currentInstances: 0,
+      currentPrice: 0,
+      calculatedAmount: 0,
+      instancesBarWidth: 100,
+      priceBarWidth: 100,
+      totalBarWidth: 100,
+      totalCost: 0,
       show: false,
     };
   }
 
   componentDidMount() {
     window.addEventListener("scroll", this.isSticky);
+    const { data, totalCost } = this.props;
+    const calcAmount = calculateTotalCost(data, "storage");
+    this.setState({
+      originalInstances: data.quantity,
+      originalPrice: data.avgPrice,
+      currentInstances: data.quantity,
+      currentPrice: data.avgPrice,
+      optimizeAmounts: data.optimizationOptions,
+      data: data,
+      calculatedAmount: calcAmount,
+      originalCalculatedAmount: calcAmount,
+      totalCost: totalCost,
+    });
   }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.isSticky);
   }
 
-  isSticky = (e) => {
+  isSticky = () => {
     const tabs = document.querySelector(".tabs-storage-charts");
     const tabsScrollTop = window.scrollY;
     if (tabsScrollTop >= 50) {
@@ -31,45 +55,159 @@ class Storage extends Component {
   handleClose = () => this.setState({ show: false });
   handleShow = () => this.setState({ show: true });
 
-  toggleDataChange = () => {
-    this.setState((prevState) => ({
-      dataChange: !prevState.dataChange,
-    }));
+  renderOptimzationApplyBoxes = () => {
+    const JSX = [];
+    const { optimizeAmounts } = this.state;
+    for (const item in optimizeAmounts) {
+      JSX.push(
+        <div className="apply-box">
+          <div className="top-contain d-flex justify-content-between align-items-center">
+            <span>{optimizeAmounts[item].title}</span>
+            <div className="form-check form-switch d-flex align-items-center">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+                onChange={(e) => this.calculateChange(e, item)}
+              />
+              <label
+                className="form-check-label"
+                htmlFor="flexSwitchCheckDefault"
+              >
+                Apply
+              </label>
+            </div>
+          </div>
+          <div className="bottom-contain d-flex justify-content-between align-items-center">
+            <span>{optimizeAmounts[item].description}</span>
+            <span className="impact-details" onClick={this.handleShow}>
+              Impact details
+            </span>
+          </div>
+        </div>
+      );
+    }
+    return JSX;
+  };
+
+  calculateChange = (e, item) => {
+    const { checked } = e.target;
+    const {
+      optimizeAmounts,
+      currentInstances,
+      currentPrice,
+      calculatedAmount,
+      originalInstances,
+      originalPrice,
+      originalCalculatedAmount,
+    } = this.state;
+    let { data, instancesBarWidth, priceBarWidth, totalBarWidth, totalCost } =
+      this.state;
+    let calcUnit = optimizeAmounts[item].amount;
+    let newInstances;
+    let newPrice;
+    if (checked) {
+      if (optimizeAmounts[item].effectUnit === "instance") {
+        const subAmount = currentInstances - calcUnit;
+        newInstances = subAmount;
+        instancesBarWidth =
+          instancesBarWidth - (calcUnit / originalInstances) * 100;
+        this.setState({
+          currentInstances: subAmount,
+          instancesBarWidth,
+        });
+      } else {
+        calcUnit = Number(calcUnit);
+        const newAmount = currentPrice - calcUnit;
+        newPrice = newAmount;
+        priceBarWidth = priceBarWidth - (calcUnit / originalPrice) * 100;
+        this.setState({
+          currentPrice: newAmount,
+          priceBarWidth,
+        });
+      }
+    } else {
+      if (optimizeAmounts[item].effectUnit === "instance") {
+        const sumAmount = currentInstances + calcUnit;
+        newInstances = sumAmount;
+        instancesBarWidth =
+          instancesBarWidth + (calcUnit / originalInstances) * 100;
+        this.setState({
+          currentInstances: sumAmount,
+          instancesBarWidth,
+        });
+      } else {
+        calcUnit = Number(calcUnit);
+        const sumAmount = currentPrice + calcUnit;
+        newPrice = sumAmount;
+        priceBarWidth = priceBarWidth + (calcUnit / originalPrice) * 100;
+        this.setState({
+          currentPrice: sumAmount,
+          priceBarWidth,
+        });
+      }
+    }
+    if (newPrice) {
+      data.avgPrice = newPrice;
+    }
+
+    if (newInstances) {
+      data.quantity = newInstances;
+    }
+    const newCost = calculateTotalCost(data, "storage");
+    if (newCost < calculatedAmount) {
+      const diffAmount = calculatedAmount - newCost;
+      totalCost = totalCost - diffAmount;
+      totalBarWidth =
+        totalBarWidth - (diffAmount / originalCalculatedAmount) * 100;
+    } else {
+      const diffAmount = newCost - calculatedAmount;
+      totalCost = totalCost + diffAmount;
+      totalBarWidth =
+        totalBarWidth + (diffAmount / originalCalculatedAmount) * 100;
+    }
+    this.setState({ calculatedAmount: newCost, totalCost, totalBarWidth });
   };
 
   render() {
-    const { dataChange, show } = this.state;
+    const {
+      instancesBarWidth,
+      priceBarWidth,
+      totalBarWidth,
+      show,
+      currentPrice,
+      currentInstances,
+    } = this.state;
 
     return (
       <>
         <div className="tabs-storage-charts">
           <div className="compute-contain storage">
             <div className="compute-cost">
-              <span>{dataChange ? 150 : 139} TB</span>
+              <span>{currentInstances} TB</span>
               <div
                 className="progress"
-                style={{ width: `${dataChange ? 100 : 90}%` }}
+                style={{ width: `${instancesBarWidth}%` }}
               ></div>
             </div>
             <div className="compute-cost">
-              <span>${dataChange ? 0.45 : 0.4}/GB/month</span>
+              <span>${currentPrice}/GB/month</span>
               <div
                 className="progress"
-                style={{ width: `${dataChange ? 100 : 85}%` }}
+                style={{ width: `${priceBarWidth}%` }}
               ></div>
             </div>
             <div className="compute-cost">
-              <span>${dataChange ? "600,000" : "499,500"}</span>
+              <span>${this.state.calculatedAmount}</span>
               <div
                 className="progress"
-                style={{ width: `${dataChange ? 100 : 75}%` }}
+                style={{ width: `${totalBarWidth}%` }}
               ></div>
             </div>
           </div>
           <div className="compute-total-cost d-flex justify-content-between">
-            <span>
-              Total cost: $ {dataChange ? "1,000,000" : "899,500"}/year
-            </span>
+            <span>Total cost: $ {this.state.totalCost}/year</span>
             <button
               className="btn"
               onClick={() => this.props.setCurrentStep((prev) => prev + 1)}
@@ -80,179 +218,7 @@ class Storage extends Component {
           </div>
           <div className="charts-shadow"></div>
         </div>
-        <div className="apply-boxes">
-          <div className="apply-box">
-            <div className="top-contain d-flex justify-content-between align-items-center">
-              <span>Adopt lean provisioning and rightsizing</span>
-              <div
-                className="form-check form-switch d-flex align-items-center"
-                onClick={this.toggleDataChange}
-              >
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  role="switch"
-                  id="flexSwitchCheckDefault"
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="flexSwitchCheckDefault"
-                >
-                  Apply
-                </label>
-              </div>
-            </div>
-            <div className="bottom-contain d-flex justify-content-between align-items-center">
-              <span>Reduce buffer size and release unused capacity</span>
-              <span className="impact-details" onClick={this.handleShow}>Impact details</span>
-            </div>
-          </div>
-          <div className="apply-box">
-            <div className="top-contain d-flex justify-content-between align-items-center">
-              <span>Leverage autoscaling</span>
-              <div
-                className="form-check form-switch d-flex align-items-center"
-                onClick={this.toggleDataChange}
-              >
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  role="switch"
-                  id="flexSwitchCheckDefault"
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="flexSwitchCheckDefault"
-                >
-                  Apply
-                </label>
-              </div>
-            </div>
-            <div className="bottom-contain d-flex justify-content-between align-items-center">
-              <span>
-                Automatically scale up/down workloads that have variable demand
-                over time (eg, advanced analytics models)
-              </span>
-              <span className="impact-details">Impact details</span>
-            </div>
-          </div>
-          <div className="apply-box">
-            <div className="top-contain d-flex justify-content-between align-items-center">
-              <span>Leverage savings plan/reservations</span>
-              <div
-                className="form-check form-switch d-flex align-items-center"
-                onClick={this.toggleDataChange}
-              >
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  role="switch"
-                  id="flexSwitchCheckDefault"
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="flexSwitchCheckDefault"
-                >
-                  Apply
-                </label>
-              </div>
-            </div>
-            <div className="bottom-contain d-flex justify-content-between align-items-center">
-              <span>
-                Cloud service providers would offer discounted rate in exchange
-                for long-term commitment
-              </span>
-              <span className="impact-details">Impact details</span>
-            </div>
-          </div>
-          <div className="apply-box">
-            <div className="top-contain d-flex justify-content-between align-items-center">
-              <span>Utilize spot instances</span>
-              <div
-                className="form-check form-switch d-flex align-items-center"
-                onClick={this.toggleDataChange}
-              >
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  role="switch"
-                  id="flexSwitchCheckDefault"
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="flexSwitchCheckDefault"
-                >
-                  Apply
-                </label>
-              </div>
-            </div>
-            <div className="bottom-contain d-flex justify-content-between align-items-center">
-              <span>
-                Switch portion of workloads to discounted spot instances (eg,
-                low-priority or batch workloads)
-              </span>
-              <span className="impact-details">Impact details</span>
-            </div>
-          </div>
-          <div className="apply-box">
-            <div className="top-contain d-flex justify-content-between align-items-center">
-              <span>Schedule infrastructure availability</span>
-              <div
-                className="form-check form-switch d-flex align-items-center"
-                onClick={this.toggleDataChange}
-              >
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  role="switch"
-                  id="flexSwitchCheckDefault"
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="flexSwitchCheckDefault"
-                >
-                  Apply
-                </label>
-              </div>
-            </div>
-            <div className="bottom-contain d-flex justify-content-between align-items-center">
-              <span>
-                Turn on/off for services/environments and workloads that do not
-                need to run continuously
-              </span>
-              <span className="impact-details">Impact details</span>
-            </div>
-          </div>
-          <div className="apply-box">
-            <div className="top-contain d-flex justify-content-between align-items-center">
-              <span>Automate provisioning with guardrails</span>
-              <div
-                className="form-check form-switch d-flex align-items-center"
-                onClick={this.toggleDataChange}
-              >
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  role="switch"
-                  id="flexSwitchCheckDefault"
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="flexSwitchCheckDefault"
-                >
-                  Apply
-                </label>
-              </div>
-            </div>
-            <div className="bottom-contain d-flex justify-content-between align-items-center">
-              <span>
-                Set up automated rules preventing certain types of inefficient
-                provisioning activities
-              </span>
-              <span className="impact-details">Impact details</span>
-            </div>
-          </div>
-        </div>
+        <div className="apply-boxes">{this.renderOptimzationApplyBoxes()}</div>
         <div className="content">
           <span className="sub-heading">
             See the total effect of all your optimization selections.

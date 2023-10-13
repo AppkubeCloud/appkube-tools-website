@@ -6,7 +6,6 @@ class Compute extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataChange: true,
       show: false,
       originalInstances: 0,
       originalPrice: 0,
@@ -170,13 +169,8 @@ class Compute extends Component {
   };
 
   render() {
-    const {
-      dataChange,
-      show,
-      currentInstances,
-      currentPrice,
-      calculatedAmount,
-    } = this.state;
+    const { show, currentInstances, currentPrice, calculatedAmount } =
+      this.state;
     return (
       <>
         <div className="tabs-charts">

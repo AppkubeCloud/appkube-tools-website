@@ -18,22 +18,29 @@ class OptimizationOptions extends Component {
     super(props);
     this.state = {
       currentTab: 0,
+      totalCost: 0,
     };
   }
 
-  setCurrentTab = (tabNumber) => {
-    this.setState({ currentTab: tabNumber });
-  };
-
-  renderTabs = (components) => {
-    const tabsNavJSX = [];
-    const tabsJSX = [];
+  componentDidMount = () => {
+    const components = data.startingScenario.costComponents;
     let totalCost = 0;
     components.map((item) => {
       totalCost += Number(
         calculateTotalCost(item, item.component.toLowerCase())
       );
     });
+    this.setState({ totalCost: totalCost });
+  };
+
+  setCurrentTab = (tabNumber) => {
+    this.setState({ currentTab: tabNumber });
+  };
+
+  renderTabs = (components) => {
+    const { totalCost } = this.state;
+    const tabsNavJSX = [];
+    const tabsJSX = [];
     components.map((item, index) => {
       if (item.component !== "Other") {
         tabsNavJSX.push(
@@ -79,6 +86,7 @@ class OptimizationOptions extends Component {
 
   render() {
     const components = data.startingScenario.costComponents;
+    const { totalCost } = this.state;
     return (
       <>
         <div className="content pb-3">
@@ -95,7 +103,7 @@ class OptimizationOptions extends Component {
             </small>
           </p>
         </div>
-        {this.renderTabs(components)}
+        {totalCost ? this.renderTabs(components) : <></>}
       </>
     );
   }
