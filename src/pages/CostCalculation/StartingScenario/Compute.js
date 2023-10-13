@@ -1,5 +1,5 @@
 import React from "react";
-import costCalculator from "./costCalculator";
+import calculateTotalCost from "../costCalculator";
 
 class Compute extends React.Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class Compute extends React.Component {
             <div className="col-4">
               <div className="open-content">
                 <span>Total annual cost: </span>$
-                {costCalculator(data, "compute")}
+                {calculateTotalCost(data, "compute")}
               </div>
             </div>
           </div>

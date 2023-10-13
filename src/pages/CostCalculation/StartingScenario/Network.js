@@ -1,5 +1,5 @@
 import React from "react";
-import calculateTotalCost from "./costCalculator";
+import calculateTotalCost from "../costCalculator";
 
 class Network extends React.Component {
   constructor(props) {

@@ -10,7 +10,45 @@
         "quantityCycle": null,
         "priceCycle": "hour",
         "priceUnit": null,
-        "colorCode": "rgb(5, 28, 44)"
+        "colorCode": "rgb(5, 28, 44)",
+        "optimizationOptions": {
+          "adoptleanProvisioningAndRightsizing": {
+            "title": "Adoptlean Provisioning And Rightsizing",
+            "description": "Reduce buffer size and release unused capacity",
+            "amount": 10,
+            "effectUnit": "instance"
+          },
+          "leverageAutoscaling": {
+            "title": "Leverage autoscaling",
+            "description": "Automatically scale up/down workloads that have variable demand over time (eg, advanced analytics models)",
+            "amount": 10,
+            "effectUnit": "instance"
+          },
+          "leverageSavingsPlan": {
+            "title": "Leverage savings plan/reservations",
+            "description": "Cloud service providers would offer discounted rate in exchange for long-term commitment",
+            "amount": 0.05,
+            "effectUnit": "price"
+          },
+          "utilizeSpotInstances": {
+            "title": "Utilize spot instances",
+            "description": "Switch portion of workloads to discounted spot instances (eg, low-priority or batch workloads)",
+            "amount": 0.05,
+            "effectUnit": "price"
+          },
+          "scheduleInfrastructureAvailability": {
+            "title": "Schedule infrastructure availability",
+            "description": "Turn on/off for services/environments and workloads that do not need to run continuously",
+            "amount": 0.05,
+            "effectUnit": "price"
+          },
+          "automateProvisioningWithGuardrails": {
+            "title": "Automate provisioning with guardrails",
+            "description": "Set up automated rules preventing certain types of inefficient provisioning activities",
+            "amount": 10,
+            "effectUnit": "instance"
+          }
+        }
       },
       {
         "title": "Storage",
