@@ -87,7 +87,7 @@ class SurveyCreator extends React.Component {
           Object.keys(sender.data).forEach((key) => {
             for (let p = 0; p < sender.data[key].length; p++) {
               let surveyData = sender.data[key][p];
-              if (data == surveyData) {
+              if (data === surveyData) {
                 percentage.total += k + 1;
               }
             }
