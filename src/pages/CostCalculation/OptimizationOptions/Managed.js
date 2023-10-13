@@ -208,10 +208,7 @@ class Managed extends Component {
           </div>
           <div className="compute-total-cost d-flex justify-content-between">
             <span>Total cost: $ {this.state.totalCost}/year</span>
-            <button
-              className="btn"
-              onClick={() => this.props.setCurrentStep((prev) => prev + 1)}
-            >
+            <button className="btn" onClick={() => this.props.setFinelImpact()}>
               <span>See final impact</span>
               <i className="fa-solid fa-arrow-right-long"></i>
             </button>

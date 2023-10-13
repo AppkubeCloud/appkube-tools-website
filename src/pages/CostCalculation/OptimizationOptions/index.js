@@ -66,9 +66,10 @@ class OptimizationOptions extends Component {
             }
           >
             <CurrentComponent
-              setCurrentStep={() => this.setCurrentTab(index)}
+              setCurrentTab={this.setCurrentTab}
               data={item}
               totalCost={totalCost}
+              setFinelImpact={this.props.setFinelImpact}
             />
           </div>
         );

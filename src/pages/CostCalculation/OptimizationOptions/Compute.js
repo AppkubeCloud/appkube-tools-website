@@ -199,10 +199,7 @@ class Compute extends Component {
           </div>
           <div className="compute-total-cost d-flex justify-content-between">
             <span>Total cost: $ {this.state.totalCost}/year</span>
-            <button
-              className="btn"
-              onClick={() => this.setCurrentStep((prev) => prev + 1)}
-            >
+            <button className="btn" onClick={() => this.props.setCurrentTab(1)}>
               <span>Next</span>
               <i className="fa-solid fa-arrow-right-long"></i>
             </button>
