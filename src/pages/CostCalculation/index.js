@@ -170,7 +170,7 @@ class CostCalculationTemplate extends Component {
                   className={currentTab === 2 ? "tab-pane active" : "tab-pane"}
                 >
                   <OptimizationOptions
-                    setFinelImpact={() => {
+                    setFinalImpactTabActive={() => {
                       this.setCurrentTab(3);
                     }}
                   />

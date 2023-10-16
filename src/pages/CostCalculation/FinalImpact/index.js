@@ -8,7 +8,7 @@ class FinalImpact extends Component {
     const {} = this.state;
     return (
       <>
-        <div class="final-impact-content">
+        <div className="final-impact-content">
           <p>How your optimization choices influenced your cloud spend.</p>
           <p>
             <small>
@@ -19,42 +19,42 @@ class FinalImpact extends Component {
             </small>
           </p>
         </div>
-        <div class="final-impact-part">
-          <div class="d-flex align-items-center">
-            <div class="impact-details">
-              <span class="computer">Computer</span>
+        <div className="final-impact-part">
+          <div className="d-flex align-items-center">
+            <div className="impact-details">
+              <span className="computer">Computer</span>
             </div>
-            <div class="impact-details">
-              <span class="stronge">Storage</span>
+            <div className="impact-details">
+              <span className="stronge">Storage</span>
             </div>
-            <div class="impact-details">
-              <span class="network">Network</span>
+            <div className="impact-details">
+              <span className="network">Network</span>
             </div>
-            <div class="impact-details">
-              <span class="managed-database">Managed database</span>
+            <div className="impact-details">
+              <span className="managed-database">Managed database</span>
             </div>
-            <div class="impact-details">
-              <span class="other-services">Other services</span>
+            <div className="impact-details">
+              <span className="other-services">Other services</span>
             </div>
           </div>
-          <div class="scenario-total">
+          <div className="scenario-total">
             <span>Starting scenario: $1,000,000</span>
           </div>
-          <div class="d-flex align-items-center mb-2">
-            <div class="scenario-total-details">
-              <span class="computer">$600,000</span>
+          <div className="d-flex align-items-center mb-2">
+            <div className="scenario-total-details">
+              <span className="computer">$600,000</span>
             </div>
-            <div class="scenario-total-details">
-              <span class="stronge">$150,000</span>
+            <div className="scenario-total-details">
+              <span className="stronge">$150,000</span>
             </div>
-            <div class="scenario-total-details">
-              <span class="network">$50,000</span>
+            <div className="scenario-total-details">
+              <span className="network">$50,000</span>
             </div>
-            <div class="scenario-total-details">
-              <span class="managed-database">$100,000</span>
+            <div className="scenario-total-details">
+              <span className="managed-database">$100,000</span>
             </div>
-            <div class="scenario-total-details">
-              <span class="other-services">$100,000</span>
+            <div className="scenario-total-details">
+              <span className="other-services">$100,000</span>
             </div>
           </div>
           <svg
@@ -117,92 +117,92 @@ class FinalImpact extends Component {
               ></rect>
             </g>
           </svg>
-          <div class="scenario-total">
+          <div className="scenario-total">
             <span>Final impact: $976,950</span>
           </div>
-          <div class="d-flex align-items-center">
-            <div class="scenario-total-details">
-              <span class="computer">$600,000</span>
+          <div className="d-flex align-items-center">
+            <div className="scenario-total-details">
+              <span className="computer">$600,000</span>
             </div>
-            <div class="scenario-total-details">
-              <span class="stronge">$150,000</span>
+            <div className="scenario-total-details">
+              <span className="stronge">$150,000</span>
             </div>
-            <div class="scenario-total-details">
-              <span class="network">$50,000</span>
+            <div className="scenario-total-details">
+              <span className="network">$50,000</span>
             </div>
-            <div class="scenario-total-details">
-              <span class="managed-database">$100,000</span>
+            <div className="scenario-total-details">
+              <span className="managed-database">$100,000</span>
             </div>
-            <div class="scenario-total-details">
-              <span class="other-services">$100,000</span>
+            <div className="scenario-total-details">
+              <span className="other-services">$100,000</span>
             </div>
           </div>
-          <div class="optimization-details">
+          <div className="optimization-details">
             <span>Optimization breakdown</span>
           </div>
-          <div class="optimization-table mt-3 compute">
-            <div class="table-header">
-              <div class="row align-item-center">
-                <div class="col-lg-3 col-4">
-                  <span class="optimization-title">Compute</span>
+          <div className="optimization-table mt-3 compute">
+            <div className="table-header">
+              <div className="row align-item-center">
+                <div className="col-lg-3 col-4">
+                  <span className="optimization-title">Compute</span>
                 </div>
-                <div class="col-lg-3 col-4">
+                <div className="col-lg-3 col-4">
                   <span>Starting scenario</span>
                 </div>
-                <div class="col-lg-3 col-4">
+                <div className="col-lg-3 col-4">
                   <span>Final impact</span>
                 </div>
-                <div class="col-3 d-none d-lg-block">
+                <div className="col-3 d-none d-lg-block">
                   <span>Applied optimizations</span>
                 </div>
               </div>
             </div>
-            <div class="table-body">
-              <div class="row mt-1">
-                <div class="col-lg-3 col-4">
-                  <span class="name">Instances</span>
+            <div className="table-body">
+              <div className="row mt-1">
+                <div className="col-lg-3 col-4">
+                  <span className="name">Instances</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="scenario-number">150</span>
+                <div className="col-lg-3 col-4">
+                  <span className="scenario-number">150</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="final-impact">150</span>
+                <div className="col-lg-3 col-4">
+                  <span className="final-impact">150</span>
                 </div>
-                <div class="col-lg-3 col-4 d-none d-lg-block">
+                <div className="col-lg-3 col-4 d-none d-lg-block">
                   <button className="btn p-0">
-                    <i class="fa-regular fa-circle-xmark"></i>
-                    <span class="utilize-optimization">
+                    <i className="fa-regular fa-circle-xmark"></i>
+                    <span className="utilize-optimization">
                       Utilize spotinstances
                     </span>
                   </button>
                 </div>
               </div>
-              <div class="row mt-1">
-                <div class="col-lg-3 col-4">
-                  <span class="name">Instance/hour</span>
+              <div className="row mt-1">
+                <div className="col-lg-3 col-4">
+                  <span className="name">Instance/hour</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="scenario-number">$0.45</span>
+                <div className="col-lg-3 col-4">
+                  <span className="scenario-number">$0.45</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="final-impact">$0.45</span>
+                <div className="col-lg-3 col-4">
+                  <span className="final-impact">$0.45</span>
                 </div>
-                <div class="col-lg-3 col-4 d-none d-lg-block">
+                <div className="col-lg-3 col-4 d-none d-lg-block">
                   <button className="btn p-0 add-optimization">
-                    <i class="fa-solid fa-circle-plus"></i>
+                    <i className="fa-solid fa-circle-plus"></i>
                     <span>Add optimization</span>
                   </button>
                 </div>
               </div>
-              <div class="row mt-1">
-                <div class="col-lg-3 col-4">
-                  <span class="name">Price/year</span>
+              <div className="row mt-1">
+                <div className="col-lg-3 col-4">
+                  <span className="name">Price/year</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="scenario-number">$600,000</span>
+                <div className="col-lg-3 col-4">
+                  <span className="scenario-number">$600,000</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="final-impact">$555,000</span>
+                <div className="col-lg-3 col-4">
+                  <span className="final-impact">$555,000</span>
                 </div>
               </div>
               <div className="row mt-1 d-lg-none d-flex">
@@ -211,15 +211,15 @@ class FinalImpact extends Component {
                     <strong>Applied optimizations</strong>
                     <div className="d-block w-100">
                       <button className="btn ps-0">
-                        <i class="fa-regular fa-circle-xmark"></i>
-                        <span class="utilize-optimization">
+                        <i className="fa-regular fa-circle-xmark"></i>
+                        <span className="utilize-optimization">
                           Utilize spotinstances
                         </span>
                       </button>
                     </div>
                     <div className="d-block w-100">
                       <button className="btn ps-0 add-optimization">
-                        <i class="fa-solid fa-circle-plus"></i>
+                        <i className="fa-solid fa-circle-plus"></i>
                         <span>Add optimization</span>
                       </button>
                     </div>
@@ -228,61 +228,61 @@ class FinalImpact extends Component {
               </div>
             </div>
           </div>
-          <div class="optimization-table mt-3 storage">
-            <div class="table-header">
-              <div class="row ">
-                <div class="col-lg-3 col-4">
-                  <span class="optimization-title">Storage</span>
+          <div className="optimization-table mt-3 storage">
+            <div className="table-header">
+              <div className="row ">
+                <div className="col-lg-3 col-4">
+                  <span className="optimization-title">Storage</span>
                 </div>
-                <div class="col-lg-3 col-4">
+                <div className="col-lg-3 col-4">
                   <span>Starting scenario</span>
                 </div>
-                <div class="col-lg-3 col-4">
+                <div className="col-lg-3 col-4">
                   <span>Final impact</span>
                 </div>
-                <div class="col-3 d-none d-lg-block">
+                <div className="col-3 d-none d-lg-block">
                   <span>Applied optimizations</span>
                 </div>
               </div>
             </div>
-            <div class="table-body">
-              <div class="row mt-1">
-                <div class="col-lg-3 col-4">
-                  <span class="name">TB</span>
+            <div className="table-body">
+              <div className="row mt-1">
+                <div className="col-lg-3 col-4">
+                  <span className="name">TB</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="scenario-number">125</span>
+                <div className="col-lg-3 col-4">
+                  <span className="scenario-number">125</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="final-impact">125</span>
+                <div className="col-lg-3 col-4">
+                  <span className="final-impact">125</span>
                 </div>
-                <div class="col-lg-3 col-4 d-none d-lg-block">
+                <div className="col-lg-3 col-4 d-none d-lg-block">
                   <button className="btn p-0 add-optimization">
-                    <i class="fa-solid fa-circle-plus"></i>
+                    <i className="fa-solid fa-circle-plus"></i>
                     <span>Add optimization</span>
                   </button>
                 </div>
               </div>
-              <div class="row mt-1">
-                <div class="col-lg-3 col-4">
-                  <span class="name">GB/month</span>
+              <div className="row mt-1">
+                <div className="col-lg-3 col-4">
+                  <span className="name">GB/month</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="scenario-number">$0.10</span>
+                <div className="col-lg-3 col-4">
+                  <span className="scenario-number">$0.10</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="final-impact">$0.10</span>
+                <div className="col-lg-3 col-4">
+                  <span className="final-impact">$0.10</span>
                 </div>
               </div>
-              <div class="row mt-1">
-                <div class="col-lg-3 col-4">
-                  <span class="name">Price/year</span>
+              <div className="row mt-1">
+                <div className="col-lg-3 col-4">
+                  <span className="name">Price/year</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="scenario-number">$150,000</span>
+                <div className="col-lg-3 col-4">
+                  <span className="scenario-number">$150,000</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="final-impact">$150,000</span>
+                <div className="col-lg-3 col-4">
+                  <span className="final-impact">$150,000</span>
                 </div>
               </div>
               <div className="row mt-1 d-lg-none d-flex">
@@ -291,7 +291,7 @@ class FinalImpact extends Component {
                     <strong>Applied optimizations</strong>
                     <div className="d-block w-100">
                       <button className="btn ps-0 add-optimization">
-                        <i class="fa-solid fa-circle-plus"></i>
+                        <i className="fa-solid fa-circle-plus"></i>
                         <span>Add optimization</span>
                       </button>
                     </div>
@@ -300,61 +300,61 @@ class FinalImpact extends Component {
               </div>
             </div>
           </div>
-          <div class="optimization-table mt-3 network">
-            <div class="table-header">
-              <div class="row ">
-                <div class="col-lg-3 col-4">
-                  <span class="optimization-title">Network</span>
+          <div className="optimization-table mt-3 network">
+            <div className="table-header">
+              <div className="row ">
+                <div className="col-lg-3 col-4">
+                  <span className="optimization-title">Network</span>
                 </div>
-                <div class="col-lg-3 col-4">
+                <div className="col-lg-3 col-4">
                   <span>Starting scenario</span>
                 </div>
-                <div class="col-lg-3 col-4">
+                <div className="col-lg-3 col-4">
                   <span>Final impact</span>
                 </div>
-                <div class="col-3 d-none d-lg-block">
+                <div className="col-3 d-none d-lg-block">
                   <span>Applied optimizations</span>
                 </div>
               </div>
             </div>
-            <div class="table-body">
-              <div class="row mt-1">
-                <div class="col-lg-3 col-4">
-                  <span class="name">TB/day</span>
+            <div className="table-body">
+              <div className="row mt-1">
+                <div className="col-lg-3 col-4">
+                  <span className="name">TB/day</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="scenario-number">1.5</span>
+                <div className="col-lg-3 col-4">
+                  <span className="scenario-number">1.5</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="final-impact">1.5</span>
+                <div className="col-lg-3 col-4">
+                  <span className="final-impact">1.5</span>
                 </div>
-                <div class="col-lg-3 col-4 d-none d-lg-block">
+                <div className="col-lg-3 col-4 d-none d-lg-block">
                   <button className="btn p-0 add-optimization">
-                    <i class="fa-solid fa-circle-plus"></i>
+                    <i className="fa-solid fa-circle-plus"></i>
                     <span>Add optimization</span>
                   </button>
                 </div>
               </div>
-              <div class="row mt-1">
-                <div class="col-lg-3 col-4">
-                  <span class="name">GB transferred</span>
+              <div className="row mt-1">
+                <div className="col-lg-3 col-4">
+                  <span className="name">GB transferred</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="scenario-number">$0.10</span>
+                <div className="col-lg-3 col-4">
+                  <span className="scenario-number">$0.10</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="final-impact">$0.10</span>
+                <div className="col-lg-3 col-4">
+                  <span className="final-impact">$0.10</span>
                 </div>
               </div>
-              <div class="row mt-1">
-                <div class="col-lg-3 col-4">
-                  <span class="name">Price/year</span>
+              <div className="row mt-1">
+                <div className="col-lg-3 col-4">
+                  <span className="name">Price/year</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="scenario-number">$50,000</span>
+                <div className="col-lg-3 col-4">
+                  <span className="scenario-number">$50,000</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="final-impact">$50,000</span>
+                <div className="col-lg-3 col-4">
+                  <span className="final-impact">$50,000</span>
                 </div>
               </div>
               <div className="row mt-1 d-lg-none d-flex">
@@ -363,7 +363,7 @@ class FinalImpact extends Component {
                     <strong>Applied optimizations</strong>
                     <div className="d-block w-100">
                       <button className="btn ps-0 add-optimization">
-                        <i class="fa-solid fa-circle-plus"></i>
+                        <i className="fa-solid fa-circle-plus"></i>
                         <span>Add optimization</span>
                       </button>
                     </div>
@@ -372,61 +372,61 @@ class FinalImpact extends Component {
               </div>
             </div>
           </div>
-          <div class="optimization-table mt-3 managed-database">
-            <div class="table-header">
-              <div class="row">
-                <div class="col-lg-3 col-4">
-                  <span class="optimization-title">Managed database</span>
+          <div className="optimization-table mt-3 managed-database">
+            <div className="table-header">
+              <div className="row">
+                <div className="col-lg-3 col-4">
+                  <span className="optimization-title">Managed database</span>
                 </div>
-                <div class="col-lg-3 col-4">
+                <div className="col-lg-3 col-4">
                   <span>Starting scenario</span>
                 </div>
-                <div class="col-lg-3 col-4">
+                <div className="col-lg-3 col-4">
                   <span>Final impact</span>
                 </div>
-                <div class="col-3 d-none d-lg-block">
+                <div className="col-3 d-none d-lg-block">
                   <span>Applied optimizations</span>
                 </div>
               </div>
             </div>
-            <div class="table-body">
-              <div class="row mt-1">
-                <div class="col-lg-3 col-4">
-                  <span class="name">Instances</span>
+            <div className="table-body">
+              <div className="row mt-1">
+                <div className="col-lg-3 col-4">
+                  <span className="name">Instances</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="scenario-number">14</span>
+                <div className="col-lg-3 col-4">
+                  <span className="scenario-number">14</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="final-impact">14</span>
+                <div className="col-lg-3 col-4">
+                  <span className="final-impact">14</span>
                 </div>
-                <div class="col-3 d-none d-lg-block">
+                <div className="col-3 d-none d-lg-block">
                   <button className="btn p-0 add-optimization">
-                    <i class="fa-solid fa-circle-plus"></i>
+                    <i className="fa-solid fa-circle-plus"></i>
                     <span>Add optimization</span>
                   </button>
                 </div>
               </div>
-              <div class="row mt-1">
-                <div class="col-lg-3 col-4">
-                  <span class="name">Instance/hour</span>
+              <div className="row mt-1">
+                <div className="col-lg-3 col-4">
+                  <span className="name">Instance/hour</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="scenario-number">$0.80</span>
+                <div className="col-lg-3 col-4">
+                  <span className="scenario-number">$0.80</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="final-impact">$0.80</span>
+                <div className="col-lg-3 col-4">
+                  <span className="final-impact">$0.80</span>
                 </div>
               </div>
-              <div class="row mt-1">
-                <div class="col-lg-3 col-4">
-                  <span class="name">Price/year</span>
+              <div className="row mt-1">
+                <div className="col-lg-3 col-4">
+                  <span className="name">Price/year</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="scenario-number">$100,000</span>
+                <div className="col-lg-3 col-4">
+                  <span className="scenario-number">$100,000</span>
                 </div>
-                <div class="col-lg-3 col-4">
-                  <span class="final-impact">$100,000</span>
+                <div className="col-lg-3 col-4">
+                  <span className="final-impact">$100,000</span>
                 </div>
               </div>
               <div className="row mt-1 d-lg-none d-flex">
@@ -435,7 +435,7 @@ class FinalImpact extends Component {
                     <strong>Applied optimizations</strong>
                     <div className="d-block w-100">
                       <button className="btn ps-0 add-optimization">
-                        <i class="fa-solid fa-circle-plus"></i>
+                        <i className="fa-solid fa-circle-plus"></i>
                         <span>Add optimization</span>
                       </button>
                     </div>
@@ -444,7 +444,7 @@ class FinalImpact extends Component {
               </div>
             </div>
           </div>
-          <div class="other-services-info mt-3">
+          <div className="other-services-info mt-3">
             <span>Other services</span>
             <p>
               These services are accounted for by default at an annual cost of

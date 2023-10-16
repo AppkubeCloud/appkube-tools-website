@@ -73,7 +73,7 @@ class OptimizationOptions extends Component {
               setCurrentTab={this.setCurrentTab}
               data={item}
               totalCost={totalCost}
-              setFinelImpact={this.props.setFinelImpact}
+              setFinalImpactTabActive={this.props.setFinalImpactTabActive}
               setNewTotalCost={this.setNewTotalCost}
             />
           </div>
