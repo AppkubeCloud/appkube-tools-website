@@ -118,7 +118,6 @@ class Network extends Component {
           instancesBarWidth,
         });
       } else {
-        calcUnit = Number(calcUnit);
         const newAmount = currentPrice - calcUnit;
         newPrice = newAmount;
         priceBarWidth = priceBarWidth - (calcUnit / originalPrice) * 100;
@@ -138,7 +137,6 @@ class Network extends Component {
           instancesBarWidth,
         });
       } else {
-        calcUnit = Number(calcUnit);
         const sumAmount = currentPrice + calcUnit;
         newPrice = sumAmount;
         priceBarWidth = priceBarWidth + (calcUnit / originalPrice) * 100;
@@ -166,6 +164,15 @@ class Network extends Component {
       totalCost = totalCost + diffAmount;
       totalBarWidth =
         totalBarWidth + (diffAmount / originalCalculatedAmount) * 100;
+    }
+    if (newCost > calculatedAmount) {
+      this.props.setNewTotalCost(
+        this.props.totalCost + Math.abs(newCost - calculatedAmount)
+      );
+    } else {
+      this.props.setNewTotalCost(
+        this.props.totalCost - Math.abs(newCost - calculatedAmount)
+      );
     }
     this.setState({ calculatedAmount: newCost, totalCost, totalBarWidth });
   };
@@ -207,7 +214,7 @@ class Network extends Component {
             </div>
           </div>
           <div className="compute-total-cost d-flex justify-content-between">
-            <span>Total cost: $ {this.state.totalCost}/year</span>
+            <span>Total cost: ${this.props.totalCost}/year</span>
             <button className="btn" onClick={() => this.props.setCurrentTab(3)}>
               <span>Next</span>
               <i className="fa-solid fa-arrow-right-long"></i>

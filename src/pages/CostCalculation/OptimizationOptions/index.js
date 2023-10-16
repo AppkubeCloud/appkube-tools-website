@@ -37,6 +37,10 @@ class OptimizationOptions extends Component {
     this.setState({ currentTab: tabNumber });
   };
 
+  setNewTotalCost = (cost) => {
+    this.setState({ totalCost: cost });
+  };
+
   renderTabs = (components) => {
     const { totalCost } = this.state;
     const tabsNavJSX = [];
@@ -70,6 +74,7 @@ class OptimizationOptions extends Component {
               data={item}
               totalCost={totalCost}
               setFinelImpact={this.props.setFinelImpact}
+              setNewTotalCost={this.setNewTotalCost}
             />
           </div>
         );
