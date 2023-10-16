@@ -1,16 +1,86 @@
-button, button::after, button::before, button:focus, button:active, button:focus:active {
+button,
+button::after,
+button::before,
+button:focus,
+button:active,
+button:focus:active {
     outline: none;
     box-shadow: none;
     border-color: transparent !important;
 }
+
 .wrapper {
     display: block;
     width: 100%;
 }
 
+.header {
+    background-color: #060B27;
+    display: flex;
+    width: 100%;
+    min-height: 70px;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    border-bottom: 1px solid #151934;
+}
+
+.header .navbar ul {
+    display: flex;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.header .navbar ul li {
+    list-style: none;
+    margin-right: 27px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #8F9BB7;
+    cursor: pointer;
+}
+
+.header .navbar ul li:hover {
+    color: #FFFFFF;
+}
+
+.header .btn {
+    border-radius: 30px;
+    background-color: #7214FF;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 500;
+    height: 40px;
+}
+
+.optimization-part {
+    padding: 40px 0px;
+    background-color: #060B27;
+    font-family: 'Inter', sans-serif;
+}
+
+.optimization-part .cost-img {
+    width: 500px;
+    height: 400px;
+}
+
+.optimization-part .cost-contain span {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+}
+
+.optimization-part .cost-contain p {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    margin-top: 20px;
+}
+
 .header-container {
     position: absolute;
-    top: 0;
+    top: -100%;
     right: 0;
     left: 0;
     z-index: 11;
@@ -20,15 +90,17 @@ button, button::after, button::before, button:focus, button:active, button:focus
     background-color: #ffffff;
     border-bottom: 1px solid #d0d0d0;
     transition: all .5s;
+
 }
 
 .header-container.is-sticky {
     position: fixed;
+    top: 0;
     padding: 8px 0;
     transition: all .5s;
     backdrop-filter: blur(10px);
     animation: slideDown 0.95s ease-out;
-  }
+}
 
 .logo-text {
     font-size: 16px;
@@ -65,18 +137,24 @@ button, button::after, button::before, button:focus, button:active, button:focus
     width: 100%;
     top: 60px;
     left: 0;
+    opacity: 0;
 }
-  
+
 #progressBar {
-    background: linear-gradient(to left, #2251ff, #2251ff);
+    background-color: transparent;
+    background: rgb(134, 118, 255);
     transform-origin: top left;
-    transform: scale(0,0);
+    transform: scale(0, 0);
     opacity: 0;
 }
 
 #progressBarContainer,
 #progressBar {
     height: 2px;
+}
+
+.header-container.is-sticky+#progressBarContainer {
+    opacity: 1;
 }
 
 .cost-main-container {
@@ -89,13 +167,10 @@ button, button::after, button::before, button:focus, button:active, button:focus
 .tabs-container {
     display: table;
     margin: 0 auto;
-    width: 840px;
 }
 
 .tabs-container .nav-pills {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     width: 100%;
 }
 
@@ -106,14 +181,13 @@ button, button::after, button::before, button:focus, button:active, button:focus
     right: auto;
     z-index: 10;
     padding-top: 80px;
-    width: 840px;
     background-color: #ffffff;
 }
 
-.tabs-container .nav-pills .nav-item { 
+.tabs-container .nav-pills .nav-item {
     display: inline-flex;
     position: relative;
-    width: 33.333333%;
+    width: 223px;
 }
 
 .tabs-container .nav-pills .nav-item .nav-link {
@@ -123,12 +197,12 @@ button, button::after, button::before, button:focus, button:active, button:focus
     justify-content: center;
     border-radius: 0;
     border: none;
-    font-size: 16px;
-    line-height: 32px;
-    font-weight: 600;
+    font-size: 15px;
+    line-height: 25px;
+    font-weight: 500;
     color: #000000;
-    background-color:rgb(230, 230, 230);
-    transition: color 0s ease-in-out,background-color 0s ease-in-out,border-color 0s ease-in-out;
+    background-color: rgb(230, 230, 230);
+    transition: color 0s ease-in-out, background-color 0s ease-in-out, border-color 0s ease-in-out;
 }
 
 .tabs-container .nav-pills .nav-item .nav-link svg {
@@ -137,7 +211,7 @@ button, button::after, button::before, button:focus, button:active, button:focus
     top: 0;
     left: 100%;
     height: 100%;
-    
+
 }
 
 .tabs-container .nav-pills .nav-item .nav-link svg #background {
@@ -149,7 +223,7 @@ button, button::after, button::before, button:focus, button:active, button:focus
 }
 
 .tabs-container .nav-pills .nav-item .nav-link.active svg #block {
-    color: rgb(34, 81, 255);
+    color: rgba(134, 118, 255, 1);
 }
 
 .tabs-container .nav-pills .nav-item .nav-link svg #arrow {
@@ -159,18 +233,25 @@ button, button::after, button::before, button:focus, button:active, button:focus
 
 .tabs-container .nav-pills .nav-item .nav-link.active {
     color: #ffffff;
-    background-color: rgb(34, 81, 255);
+    background-color: rgba(134, 118, 255, 1);
 }
 
 .tabs-container .content {
     display: block;
-    padding-top: 40px;
-    padding-bottom: 80px;
+    padding: 40px 0px;
+    margin: 30px 0px 50px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    background-color: rgba(249, 251, 255, 1);
 }
+
 .tabs-container .content small {
     display: block;
-    font-size: 80%;
-    font-style: italic;
+    font-size: 11px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+
 }
 
 .tabs-container .scenario-services {
@@ -180,12 +261,14 @@ button, button::after, button::before, button:focus, button:active, button:focus
     margin-bottom: 30px;
 }
 
-.tabs-container .scenario-services .heading { 
+.tabs-container .scenario-services .heading {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
     padding: 10px 20px;
+    border-radius: 5px;
+
 }
 
 .tabs-container .scenario-services.other .heading {
@@ -193,22 +276,22 @@ button, button::after, button::before, button:focus, button:active, button:focus
 }
 
 .tabs-container .scenario-services.other .heading strong {
-    color: #000000;
+    color: #FFFFFF;
 }
 
 .tabs-container .scenario-services.other .heading button {
-    color: #000000;
+    color: #FFFFFF;
 }
 
-.tabs-container .scenario-services .heading strong { 
+.tabs-container .scenario-services .heading strong {
     display: inline-flex;
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 16px;
+    line-height: 25px;
     font-weight: 500;
     color: #ffffff;
 }
 
-.tabs-container .scenario-services .heading button { 
+.tabs-container .scenario-services .heading button {
     display: inline-flex;
     font-size: 18px;
     line-height: 32px;
@@ -216,11 +299,17 @@ button, button::after, button::before, button:focus, button:active, button:focus
     color: #ffffff;
     padding: 0;
 }
-.tabs-container .scenario-services .heading button i { 
+
+.tabs-container .scenario-services .heading button span {
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.tabs-container .scenario-services .heading button i {
     line-height: 32px;
     margin-left: 5px;
 }
-.tabs-container .scenario-services .heading button i.fa-chevron-up { 
+
+.tabs-container .scenario-services .heading button i.fa-chevron-up {
     line-height: 20px;
     vertical-align: top;
     margin-top: 7px;
@@ -229,19 +318,35 @@ button, button::after, button::before, button:focus, button:active, button:focus
 .tabs-container .scenario-services .service-content {
     display: block;
     padding: 24px 72px 24px 24px;
-    background-color: rgb(240, 240, 240);
+    background-color: #FFFFFF;
+    box-shadow: 0px 100px 80px 0px #6C49AC12;
+    border-radius: 5px;
+
 }
 
 .tabs-container .scenario-services.other .service-content {
-    background-color: rgb(208, 208, 208);
+    background-color: #FFFFFF;
 }
 
 .tabs-container .scenario-services .service-content .open-content {
     display: block;
-    font-weight: 500;
 }
+
 .tabs-container .scenario-services .service-content .open-content span {
     display: block;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+    font-size: 17px;
+    line-height: 30px;
+}
+
+.tabs-container .scenario-services .service-content .open-content .service-details {
+    display: block;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    font-size: 15px;
+    line-height: 30px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .tabs-container .scenario-services .service-content .contents {
@@ -287,7 +392,7 @@ button, button::after, button::before, button:focus, button:active, button:focus
     font-size: 18px;
 }
 
-.tabs-container .content .link:hover { 
+.tabs-container .content .link:hover {
     color: rgb(34, 81, 255);
 }
 
@@ -312,7 +417,6 @@ button, button::after, button::before, button:focus, button:active, button:focus
 .tabs-container .optimization-option-tab .nav-pills {
     display: flex;
     align-items: center;
-    justify-content: center;
     border-bottom: 1px solid rgb(179, 179, 179);
 }
 
@@ -323,8 +427,7 @@ button, button::after, button::before, button:focus, button:active, button:focus
 
 .tabs-container .optimization-option-tab .nav-pills .nav-item {
     display: inline-flex;
-    width: 25%;
-
+    width: 130px;
 }
 
 .tabs-container .optimization-option-tab .nav-pills .nav-item .nav-link {
@@ -375,6 +478,7 @@ button, button::after, button::before, button:focus, button:active, button:focus
     background: rgb(5, 28, 44);
     opacity: 0.25;
 }
+
 .tabs-container .optimization-option-tab .tab-content .compute-contain.storage .compute-cost::before {
     background-color: rgb(0, 169, 244);
 }
@@ -429,18 +533,21 @@ button, button::after, button::before, button:focus, button:active, button:focus
     font-size: 16px;
 }
 
-.tabs-container .optimization-option-tab .tab-content .compute-total-cost .btn span { 
+.tabs-container .optimization-option-tab .tab-content .compute-total-cost .btn span {
     font-size: 16px;
 }
+
 .tabs-container .optimization-option-tab .tab-content .compute-total-cost .btn i {
     margin-left: 5px;
     color: rgb(34, 81, 255);
     vertical-align: middle;
     transition: transform 0.2s ease 0s;
 }
+
 .tabs-container .optimization-option-tab .tab-content .compute-total-cost .btn:hover i {
     transform: translateX(16px);
 }
+
 .tabs-container .optimization-option-tab .tab-content .compute-total-cost .btn:hover span {
     color: rgb(34, 81, 255);
 }
@@ -564,6 +671,7 @@ button, button::after, button::before, button:focus, button:active, button:focus
     height: 30px;
 
 }
+
 .tabs-container .optimization-option-tab .tab-content .top-contain .form-switch .form-check-input:checked {
     background-color: rgb(34, 81, 255);
 }
@@ -576,7 +684,7 @@ button, button::after, button::before, button:focus, button:active, button:focus
     padding-left: 10px;
 }
 
-.tabs-container .optimization-option-tab .tab-content .top-contain .form-switch .form-check-input:checked + .form-check-label{
+.tabs-container .optimization-option-tab .tab-content .top-contain .form-switch .form-check-input:checked+.form-check-label {
     color: rgb(34, 81, 255);
 }
 
@@ -849,6 +957,7 @@ button, button::after, button::before, button:focus, button:active, button:focus
     width: 7px;
     height: 7px;
 }
+
 .tabs-container .tab-content .tab-pane .final-impact-part .impact-details span.computer::before {
     background: rgb(5, 28, 44);
 }
@@ -1022,20 +1131,108 @@ button, button::after, button::before, button:focus, button:active, button:focus
     color: rgb(0, 0, 0);
     width: 69%;
 }
-.tabs-charts.sticky + .apply-boxes,
-.tabs-storage-charts.sticky + .apply-boxes,
-.tabs-network-charts.sticky + .apply-boxes,
-.tabs-managed-charts.sticky + .apply-boxes {
+
+.tabs-charts.sticky+.apply-boxes,
+.tabs-storage-charts.sticky+.apply-boxes,
+.tabs-network-charts.sticky+.apply-boxes,
+.tabs-managed-charts.sticky+.apply-boxes {
     margin-top: 210px;
+}
+
+.footer {
+    background-color: #060B27;
+    padding: 40px 0px;
+    
+}
+.footer .row{
+    border-bottom: 1px solid #282D45;
+}
+.footer .subscribe-info {
+    width: 280px;
+    background-color: #0E1330;
+    border: 1px solid #282D45;
+    border-radius: 5px;
+    padding: 20px 0px;
+    margin-top: 30px;
+}
+
+.footer .subscribe-info span {
+    font-weight: 700;
+    line-height: 25px;
+    font-size: 18px;
+    color: #F6F6F7;
+}
+
+.footer .subscribe-info .btn {
+    margin-top: 10px;
+    border-radius: 30px;
+    background-color: #7214FF;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    display: block;
+    color: #FFFFFF;
+}
+
+.footer .subscribe-info .email-input {
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+    border: 1px solid #282D45;
+    border-radius: 40px;
+    margin-top: 10px;
+    padding: 5px 10px 5px 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer .subscribe-info .email-input::placeholder {
+    color: #47507A;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer .menu ul {
+    padding-left: 0;
+}
+
+.footer .menu label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 25px;
+    color: #8F9BB7;
+    font-weight: 500;
+}
+
+.footer .menu ul li {
+    list-style: none;
+    margin-top: 15px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+    font-weight: 500;
+}
+
+.footer .menu ul li a {
+    text-decoration: none;
+    color: #8F9BB7;
+
 }
 
 @media (max-width: 992px) {
     .tabs-container {
         width: 100%;
     }
+
     .tabs-container.tabs-sticky .nav-pills {
         width: 696px;
     }
+
     .tabs-charts.sticky,
     .tabs-storage-charts.sticky,
     .tabs-network-charts.sticky,
@@ -1048,21 +1245,25 @@ button, button::after, button::before, button:focus, button:active, button:focus
     .tabs-container {
         width: 100%;
     }
+
     .tabs-container.tabs-sticky .nav-pills {
         width: 516px;
     }
+
     .tabs-container .nav-pills .nav-item .nav-link {
         font-size: 16px;
         line-height: 18px;
         height: 52px;
         text-align: center;
     }
+
     .tabs-charts.sticky,
     .tabs-storage-charts.sticky,
     .tabs-network-charts.sticky,
     .tabs-managed-charts.sticky {
         width: 516px;
     }
+
     .tabs-container .optimization-option-tab .nav-pills .nav-item .nav-link {
         font-size: 14px;
         line-height: 18px;
@@ -1079,6 +1280,8 @@ button, button::after, button::before, button:focus, button:active, button:focus
         font-size: 16px;
         line-height: 18px;
     }
+
+
 }
 
 @media (max-width: 556px) {
@@ -1160,7 +1363,7 @@ button, button::after, button::before, button:focus, button:active, button:focus
         padding-right: 10px;
     }
 
-    .tabs-container .tab-content .tab-pane .final-impact-part > div {
+    .tabs-container .tab-content .tab-pane .final-impact-part>div {
         flex-wrap: wrap;
     }
 
@@ -1172,10 +1375,12 @@ button, button::after, button::before, button:focus, button:active, button:focus
         width: 100%;
     }
 
-    .tabs-charts.sticky + .apply-boxes,
-    .tabs-storage-charts.sticky + .apply-boxes,
-    .tabs-network-charts.sticky + .apply-boxes,
-    .tabs-managed-charts.sticky + .apply-boxes {
+    .tabs-charts.sticky+.apply-boxes,
+    .tabs-storage-charts.sticky+.apply-boxes,
+    .tabs-network-charts.sticky+.apply-boxes,
+    .tabs-managed-charts.sticky+.apply-boxes {
         margin-top: 70px;
     }
+
+
 }

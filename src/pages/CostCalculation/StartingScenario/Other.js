@@ -24,17 +24,14 @@ class Other extends React.Component {
         >
           <strong>Other services</strong>
           <button type="button" className="btn" onClick={this.handleClick}>
-            <span>{isShown ? "Close" : "Details"}</span>
-            <i
-              className={
-                isShown ? "fa-solid fa-chevron-up" : "fa-solid fa-chevron-down"
-              }
-            ></i>
+            <span>{isShown ? "Close" : "View more"}</span>
           </button>
         </div>
         <div className="service-content">
-          <div className="row justify-content-end">
-            <div className="col-4">
+          <div className="row">
+            <div className="col-3"></div>
+            <div className="col-3"></div>
+            <div className="col-3">
               <div className="open-content">
                 <span>Total annual cost: </span>$
                 {calculateTotalCost(data, "other")}

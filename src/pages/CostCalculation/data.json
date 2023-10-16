@@ -10,7 +10,7 @@
         "quantityCycle": null,
         "priceCycle": "hour",
         "priceUnit": null,
-        "colorCode": "rgb(5, 28, 44)",
+        "colorCode": "rgba(134, 118, 255, 1)",
         "optimizationOptions": {
           "adoptleanProvisioningAndRightsizing": {
             "title": "Adoptlean Provisioning And Rightsizing",
@@ -59,7 +59,7 @@
         "quantityCycle": null,
         "priceCycle": "month",
         "priceUnit": "GB",
-        "colorCode": "rgb(0, 169, 244)",
+        "colorCode": "rgba(134, 118, 255, 1)",
         "optimizationOptions": {
           "reducingStorageBuffer": {
             "title": "Reducing storage buffer",
@@ -84,7 +84,7 @@
         "avgPrice": 0.1,
         "priceCycle": null,
         "priceUnit": "GB",
-        "colorCode": "rgb(3, 75, 111)",
+        "colorCode": "rgba(134, 118, 255, 1)",
         "optimizationOptions": {
           "reduceInterRegion": {
             "title": "Reduce inter-region/internet traffic",
@@ -109,7 +109,7 @@
         "avgPrice": 0.8,
         "priceCycle": "hour",
         "priceUnit": null,
-        "colorCode": "rgb(2, 122, 177)",
+        "colorCode": "rgba(134, 118, 255, 1)",
         "optimizationOptions": {
           "adoptingLeanProvisioningPractices": {
             "title": "Adopting lean provisioning practices and rightsizing the managed-database instances",
@@ -134,7 +134,7 @@
         "avgPrice": null,
         "priceCycle": null,
         "priceUnit": null,
-        "colorCode": "rgb(208, 208, 208)",
+        "colorCode": "rgba(134, 118, 255, 1)",
         "totalCost": 100000
       }
     ]

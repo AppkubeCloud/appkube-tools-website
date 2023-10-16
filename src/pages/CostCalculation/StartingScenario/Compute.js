@@ -24,39 +24,40 @@ class Compute extends React.Component {
         >
           <strong>{data.title}</strong>
           <button type="button" className="btn" onClick={this.handleClick}>
-            <span>{isShown ? "Close" : "Details"}</span>
-            <i
-              className={
-                isShown ? "fa-solid fa-chevron-up" : "fa-solid fa-chevron-down"
-              }
-            ></i>
+            <span>{isShown ? "Close" : "View more"}</span>
           </button>
         </div>
         <div className="service-content">
           <div className="row">
-            <div className="col-4">
+            <div className="col-3">
               <div className="open-content">
                 <span>Total quantity: </span>
-                {data.quantity} {data.quantityUnit}
-                {data.quantityCycle ? `/${data.quantityCycle}` : ""}
+                <span className="service-details">
+                  {data.quantity} {data.quantityUnit}
+                  {data.quantityCycle ? `/${data.quantityCycle}` : ""}
+                </span>
               </div>
             </div>
-            <div className="col-4">
+            <div className="col-3">
               <div className="open-content">
                 <span>
                   {data.quantityUnit === "instance"
                     ? `Average instance price: `
                     : `Unit Price: `}
                 </span>
-                ~ ${data.avgPrice}
-                {data.priceUnit ? `/${data.priceUnit}` : ``}
-                {data.priceCycle ? `/${data.priceCycle}` : ``}
+                <span className="service-details">
+                  ~ ${data.avgPrice}
+                  {data.priceUnit ? `/${data.priceUnit}` : ``}
+                  {data.priceCycle ? `/${data.priceCycle}` : ``}
+                </span>
               </div>
             </div>
-            <div className="col-4">
+            <div className="col-3">
               <div className="open-content">
-                <span>Total annual cost: </span>$
-                {calculateTotalCost(data, "compute")}
+                <span>Total annual cost: </span>{" "}
+                <span className="service-details">
+                  ${calculateTotalCost(data, "compute")}
+                </span>
               </div>
             </div>
           </div>
