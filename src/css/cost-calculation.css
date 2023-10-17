@@ -293,9 +293,9 @@ button:focus:active {
 
 .tabs-container .scenario-services .heading button {
     display: inline-flex;
-    font-size: 18px;
-    line-height: 32px;
-    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
     color: #ffffff;
     padding: 0;
 }
@@ -1144,10 +1144,12 @@ button:focus:active {
     padding: 40px 0px;
     
 }
-.footer .row{
+.footer .menu-list{
     border-bottom: 1px solid #282D45;
+
 }
-.footer .subscribe-info {
+
+.footer .menu-list .subscribe-info {
     width: 280px;
     background-color: #0E1330;
     border: 1px solid #282D45;
@@ -1156,14 +1158,14 @@ button:focus:active {
     margin-top: 30px;
 }
 
-.footer .subscribe-info span {
+.footer .menu-list .subscribe-info span {
     font-weight: 700;
     line-height: 25px;
     font-size: 18px;
     color: #F6F6F7;
 }
 
-.footer .subscribe-info .btn {
+.footer .menu-list .subscribe-info .btn {
     margin-top: 10px;
     border-radius: 30px;
     background-color: #7214FF;
@@ -1175,7 +1177,7 @@ button:focus:active {
     color: #FFFFFF;
 }
 
-.footer .subscribe-info .email-input {
+.footer .menu-list .subscribe-info .email-input {
     background-color: transparent;
     width: 100%;
     outline: none;
@@ -1189,18 +1191,18 @@ button:focus:active {
     font-family: 'Inter', sans-serif;
 }
 
-.footer .subscribe-info .email-input::placeholder {
+.footer .menu-list .subscribe-info .email-input::placeholder {
     color: #47507A;
     font-size: 14px;
     font-weight: 400;
     font-family: 'Inter', sans-serif;
 }
 
-.footer .menu ul {
+.footer .menu-list .menu ul {
     padding-left: 0;
 }
 
-.footer .menu label {
+.footer .menu-list .menu label {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 25px;
@@ -1208,7 +1210,7 @@ button:focus:active {
     font-weight: 500;
 }
 
-.footer .menu ul li {
+.footer .menu-list .menu ul li {
     list-style: none;
     margin-top: 15px;
     cursor: pointer;
@@ -1218,12 +1220,34 @@ button:focus:active {
     font-weight: 500;
 }
 
-.footer .menu ul li a {
+.footer .menu-list .menu ul li a {
     text-decoration: none;
     color: #8F9BB7;
 
 }
+.footer .copywrite-details .social-icon{
+margin-left: 20px;
+border: 1px solid  #282D45;
+border-radius: 5px;
+width: 30px;
+height: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+color: #8F9BB7;
+}
 
+.footer .copywrite-details span{
+color: #8F9BB7;
+font-weight: 400;
+font-family: 'Inter', sans-serif;
+font-size: 14px;
+}
+.footer .copywrite-details span a{
+    text-decoration: none;
+    color: #F6F6F7;
+}
 @media (max-width: 992px) {
     .tabs-container {
         width: 100%;

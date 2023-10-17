@@ -6,7 +6,9 @@ class Footer extends Component {
     return (
       <div className="footer">
         <div className="container ">
+        <div className="menu-list">
           <div className="row ">
+           
             <div className="col-md-5 align-items-center">
               <img src={logo} alt="" />
               <div className="subscribe-info">
@@ -96,6 +98,28 @@ class Footer extends Component {
                     <a href="#">Changelog</a>
                   </li>
                 </ul>
+              </div>
+            </div>
+            </div>
+          </div>
+          .
+          <div className="copywrite-details d-flex justify-content-between align-items-center">
+            <span>
+              Copyright © Product | Designed by <a href="#">Webocean LTD</a> -
+              Powered by <a href="#">Webflow</a>
+            </span>
+            <div className="d-flex">
+              <div className="social-icon">
+                <i class="fa-brands fa-facebook-f"></i>
+              </div>
+              <div className="social-icon">
+                <i class="fa-brands fa-twitter"></i>
+              </div>
+              <div className="social-icon">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+              <div className="social-icon">
+                <i class="fa-brands fa-instagram"></i>
               </div>
             </div>
           </div>
