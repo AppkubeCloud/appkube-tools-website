@@ -1,10 +1,129 @@
 import React, { Component } from "react";
+import data from "../data.json";
 
 class FinalImpact extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      componentsData: JSON.parse(JSON.stringify(data)),
+    };
   }
+
+  renderOptimizationbreakdown = () => {
+    const { initCalculations, newCalculations } = this.props;
+    const { componentsData } = this.state;
+    const JSX = [];
+    componentsData.startingScenario.costComponents.map((item, index) => {
+      JSX.push(
+        <div className="optimization-table mt-3">
+          <div
+            className="table-header"
+            style={{ background: `${item.colorCode}` }}
+          >
+            <div className="row align-item-center">
+              <div className="col-lg-3 col-4">
+                <span className="optimization-title">{item.title}</span>
+              </div>
+              <div className="col-lg-3 col-4">
+                <span>Starting scenario</span>
+              </div>
+              <div className="col-lg-3 col-4">
+                <span>Final impact</span>
+              </div>
+              <div className="col-3 d-none d-lg-block">
+                <span>Applied optimizations</span>
+              </div>
+            </div>
+          </div>
+          <div className="table-body">
+            <div className="row mt-1">
+              <div className="col-lg-3 col-4">
+                <span className="name">Instances</span>
+              </div>
+              <div className="col-lg-3 col-4">
+                <span className="scenario-number">{item.quantity}</span>
+              </div>
+              <div className="col-lg-3 col-4">
+                <span className="final-impact">150</span>
+              </div>
+              <div className="col-lg-3 col-4 d-none d-lg-block">
+                <button className="btn p-0">
+                  <i className="fa-regular fa-circle-xmark"></i>
+                  <span className="utilize-optimization">
+                    Utilize spotinstances
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div className="row mt-1">
+              <div className="col-lg-3 col-4">
+                <span className="name">Instance/hour</span>
+              </div>
+              <div className="col-lg-3 col-4">
+                <span className="scenario-number">
+                  {item.avgPrice ? `$${item.avgPrice}` : ``}
+                </span>
+              </div>
+              <div className="col-lg-3 col-4">
+                <span className="final-impact">$0.45</span>
+              </div>
+              <div className="col-lg-3 col-4 d-none d-lg-block">
+                <button
+                  className="btn p-0 add-optimization"
+                  onClick={() => {
+                    this.props.setCurrentTab(2);
+                    if (item.component.toLowerCase() !== "other") {
+                      this.props.setCurrentOptimzationTab(index);
+                    }
+                  }}
+                >
+                  <i className="fa-solid fa-circle-plus"></i>
+                  <span>Add optimization</span>
+                </button>
+              </div>
+            </div>
+            <div className="row mt-1">
+              <div className="col-lg-3 col-4">
+                <span className="name">Price/year</span>
+              </div>
+              <div className="col-lg-3 col-4">
+                <span className="scenario-number">
+                  ${initCalculations[item.component.toLowerCase()]}
+                </span>
+              </div>
+              <div className="col-lg-3 col-4">
+                <span className="final-impact">
+                  ${newCalculations[item.component.toLowerCase()]}
+                </span>
+              </div>
+            </div>
+            <div className="row mt-1 d-lg-none d-flex">
+              <div className="col-12">
+                <div className="d-block w-100 mt-2">
+                  <strong>Applied optimizations</strong>
+                  <div className="d-block w-100">
+                    <button className="btn ps-0">
+                      <i className="fa-regular fa-circle-xmark"></i>
+                      <span className="utilize-optimization">
+                        Utilize spotinstances
+                      </span>
+                    </button>
+                  </div>
+                  <div className="d-block w-100">
+                    <button className="btn ps-0 add-optimization">
+                      <i className="fa-solid fa-circle-plus"></i>
+                      <span>Add optimization</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    });
+    return JSX;
+  };
 
   render() {
     const { initCalculations, newCalculations } = this.props;
@@ -146,317 +265,7 @@ class FinalImpact extends Component {
           <div className="optimization-details">
             <span>Optimization breakdown</span>
           </div>
-          <div className="optimization-table mt-3 compute">
-            <div className="table-header">
-              <div className="row align-item-center">
-                <div className="col-lg-3 col-4">
-                  <span className="optimization-title">Compute</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span>Starting scenario</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span>Final impact</span>
-                </div>
-                <div className="col-3 d-none d-lg-block">
-                  <span>Applied optimizations</span>
-                </div>
-              </div>
-            </div>
-            <div className="table-body">
-              <div className="row mt-1">
-                <div className="col-lg-3 col-4">
-                  <span className="name">Instances</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="scenario-number">150</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="final-impact">150</span>
-                </div>
-                <div className="col-lg-3 col-4 d-none d-lg-block">
-                  <button className="btn p-0">
-                    <i className="fa-regular fa-circle-xmark"></i>
-                    <span className="utilize-optimization">
-                      Utilize spotinstances
-                    </span>
-                  </button>
-                </div>
-              </div>
-              <div className="row mt-1">
-                <div className="col-lg-3 col-4">
-                  <span className="name">Instance/hour</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="scenario-number">$0.45</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="final-impact">$0.45</span>
-                </div>
-                <div className="col-lg-3 col-4 d-none d-lg-block">
-                  <button className="btn p-0 add-optimization">
-                    <i className="fa-solid fa-circle-plus"></i>
-                    <span>Add optimization</span>
-                  </button>
-                </div>
-              </div>
-              <div className="row mt-1">
-                <div className="col-lg-3 col-4">
-                  <span className="name">Price/year</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="scenario-number">$600,000</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="final-impact">$555,000</span>
-                </div>
-              </div>
-              <div className="row mt-1 d-lg-none d-flex">
-                <div className="col-12">
-                  <div className="d-block w-100 mt-2">
-                    <strong>Applied optimizations</strong>
-                    <div className="d-block w-100">
-                      <button className="btn ps-0">
-                        <i className="fa-regular fa-circle-xmark"></i>
-                        <span className="utilize-optimization">
-                          Utilize spotinstances
-                        </span>
-                      </button>
-                    </div>
-                    <div className="d-block w-100">
-                      <button className="btn ps-0 add-optimization">
-                        <i className="fa-solid fa-circle-plus"></i>
-                        <span>Add optimization</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="optimization-table mt-3 storage">
-            <div className="table-header">
-              <div className="row ">
-                <div className="col-lg-3 col-4">
-                  <span className="optimization-title">Storage</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span>Starting scenario</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span>Final impact</span>
-                </div>
-                <div className="col-3 d-none d-lg-block">
-                  <span>Applied optimizations</span>
-                </div>
-              </div>
-            </div>
-            <div className="table-body">
-              <div className="row mt-1">
-                <div className="col-lg-3 col-4">
-                  <span className="name">TB</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="scenario-number">125</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="final-impact">125</span>
-                </div>
-                <div className="col-lg-3 col-4 d-none d-lg-block">
-                  <button className="btn p-0 add-optimization">
-                    <i className="fa-solid fa-circle-plus"></i>
-                    <span>Add optimization</span>
-                  </button>
-                </div>
-              </div>
-              <div className="row mt-1">
-                <div className="col-lg-3 col-4">
-                  <span className="name">GB/month</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="scenario-number">$0.10</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="final-impact">$0.10</span>
-                </div>
-              </div>
-              <div className="row mt-1">
-                <div className="col-lg-3 col-4">
-                  <span className="name">Price/year</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="scenario-number">$150,000</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="final-impact">$150,000</span>
-                </div>
-              </div>
-              <div className="row mt-1 d-lg-none d-flex">
-                <div className="col-12">
-                  <div className="d-block w-100 mt-2">
-                    <strong>Applied optimizations</strong>
-                    <div className="d-block w-100">
-                      <button className="btn ps-0 add-optimization">
-                        <i className="fa-solid fa-circle-plus"></i>
-                        <span>Add optimization</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="optimization-table mt-3 network">
-            <div className="table-header">
-              <div className="row ">
-                <div className="col-lg-3 col-4">
-                  <span className="optimization-title">Network</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span>Starting scenario</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span>Final impact</span>
-                </div>
-                <div className="col-3 d-none d-lg-block">
-                  <span>Applied optimizations</span>
-                </div>
-              </div>
-            </div>
-            <div className="table-body">
-              <div className="row mt-1">
-                <div className="col-lg-3 col-4">
-                  <span className="name">TB/day</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="scenario-number">1.5</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="final-impact">1.5</span>
-                </div>
-                <div className="col-lg-3 col-4 d-none d-lg-block">
-                  <button className="btn p-0 add-optimization">
-                    <i className="fa-solid fa-circle-plus"></i>
-                    <span>Add optimization</span>
-                  </button>
-                </div>
-              </div>
-              <div className="row mt-1">
-                <div className="col-lg-3 col-4">
-                  <span className="name">GB transferred</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="scenario-number">$0.10</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="final-impact">$0.10</span>
-                </div>
-              </div>
-              <div className="row mt-1">
-                <div className="col-lg-3 col-4">
-                  <span className="name">Price/year</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="scenario-number">$50,000</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="final-impact">$50,000</span>
-                </div>
-              </div>
-              <div className="row mt-1 d-lg-none d-flex">
-                <div className="col-12">
-                  <div className="d-block w-100 mt-2">
-                    <strong>Applied optimizations</strong>
-                    <div className="d-block w-100">
-                      <button className="btn ps-0 add-optimization">
-                        <i className="fa-solid fa-circle-plus"></i>
-                        <span>Add optimization</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="optimization-table mt-3 managed-database">
-            <div className="table-header">
-              <div className="row">
-                <div className="col-lg-3 col-4">
-                  <span className="optimization-title">Managed database</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span>Starting scenario</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span>Final impact</span>
-                </div>
-                <div className="col-3 d-none d-lg-block">
-                  <span>Applied optimizations</span>
-                </div>
-              </div>
-            </div>
-            <div className="table-body">
-              <div className="row mt-1">
-                <div className="col-lg-3 col-4">
-                  <span className="name">Instances</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="scenario-number">14</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="final-impact">14</span>
-                </div>
-                <div className="col-3 d-none d-lg-block">
-                  <button className="btn p-0 add-optimization">
-                    <i className="fa-solid fa-circle-plus"></i>
-                    <span>Add optimization</span>
-                  </button>
-                </div>
-              </div>
-              <div className="row mt-1">
-                <div className="col-lg-3 col-4">
-                  <span className="name">Instance/hour</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="scenario-number">$0.80</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="final-impact">$0.80</span>
-                </div>
-              </div>
-              <div className="row mt-1">
-                <div className="col-lg-3 col-4">
-                  <span className="name">Price/year</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="scenario-number">$100,000</span>
-                </div>
-                <div className="col-lg-3 col-4">
-                  <span className="final-impact">$100,000</span>
-                </div>
-              </div>
-              <div className="row mt-1 d-lg-none d-flex">
-                <div className="col-12">
-                  <div className="d-block w-100 mt-2">
-                    <strong>Applied optimizations</strong>
-                    <div className="d-block w-100">
-                      <button className="btn ps-0 add-optimization">
-                        <i className="fa-solid fa-circle-plus"></i>
-                        <span>Add optimization</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="other-services-info mt-3">
-            <span>Other services</span>
-            <p>
-              These services are accounted for by default at an annual cost of
-              $100,000. See more in “Starting scenario.”
-            </p>
-          </div>
+          {this.renderOptimizationbreakdown()}
         </div>
         <div className="content">
           <span className="sub-heading">

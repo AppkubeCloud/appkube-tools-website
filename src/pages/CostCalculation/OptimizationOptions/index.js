@@ -17,7 +17,7 @@ class OptimizationOptions extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTab: 0,
+      currentOptimzeTab: 0,
       totalCost: 0,
     };
   }
@@ -34,7 +34,7 @@ class OptimizationOptions extends Component {
   };
 
   setCurrentTab = (tabNumber) => {
-    this.setState({ currentTab: tabNumber });
+    this.props.setCurrentOptimzationTab(tabNumber);
   };
 
   setNewCosts = (key, cost) => {
@@ -52,7 +52,7 @@ class OptimizationOptions extends Component {
           <li className="nav-item">
             <a
               className={`nav-link ${
-                this.state.currentTab === index ? "active" : ""
+                this.props.currentOptimzeTab === index ? "active" : ""
               }`}
               data-bs-toggle="pill"
               href="#"
@@ -67,7 +67,9 @@ class OptimizationOptions extends Component {
         tabsJSX.push(
           <div
             className={
-              this.state.currentTab === index ? "tab-pane active" : "tab-pane"
+              this.props.currentOptimzeTab === index
+                ? "tab-pane active"
+                : "tab-pane"
             }
           >
             <CurrentComponent

@@ -15,6 +15,7 @@ class CostCalculationTemplate extends Component {
       currentTab: 1,
       initCalculations: {},
       newCalculations: {},
+      currentOptimzeTab: 0,
     };
   }
 
@@ -39,6 +40,10 @@ class CostCalculationTemplate extends Component {
 
   setCurrentTab = (tabNumber) => {
     this.setState({ currentTab: tabNumber });
+  };
+
+  setCurrentOptimzationTab = (tabNumber) => {
+    this.setState({ currentOptimzeTab: tabNumber });
   };
 
   setInitCostCalculations = (calcData) => {
@@ -75,8 +80,8 @@ class CostCalculationTemplate extends Component {
   };
 
   render() {
-    const { currentTab, initCalculations, newCalculations } = this.state;
-
+    const { currentTab, initCalculations, newCalculations, currentOptimzeTab } =
+      this.state;
     return (
       <>
         <Header />
@@ -241,7 +246,7 @@ class CostCalculationTemplate extends Component {
                     }
                     data-bs-toggle="pill"
                     href="#ActulVsNonActual"
-                    onClick={() => this.setCurrentTab(3)}
+                    onClick={() => this.setCurrentTab(4)}
                   >
                     Actual vs Non Actual
                     <svg
@@ -291,7 +296,7 @@ class CostCalculationTemplate extends Component {
                     }
                     data-bs-toggle="pill"
                     href="#FinalImpact"
-                    onClick={() => this.setCurrentTab(3)}
+                    onClick={() => this.setCurrentTab(5)}
                   >
                     Final impact
                   </a>
@@ -311,9 +316,11 @@ class CostCalculationTemplate extends Component {
                 >
                   <OptimizationOptions
                     setFinalImpactTabActive={() => {
-                      this.setCurrentTab(3);
+                      this.setCurrentTab(5);
                     }}
                     calculateNewCosts={this.calculateNewCosts}
+                    currentOptimzeTab={currentOptimzeTab}
+                    setCurrentOptimzationTab={this.setCurrentOptimzationTab}
                   />
                 </div>
                 <div
@@ -324,7 +331,7 @@ class CostCalculationTemplate extends Component {
                 </div>
                 <div
                   id="ActulVsNonActual"
-                  className={currentTab === 5 ? "tab-pane active" : "tab-pane"}
+                  className={currentTab === 4 ? "tab-pane active" : "tab-pane"}
                 >
                   <ActualVsNonActual />
                 </div>
@@ -335,6 +342,8 @@ class CostCalculationTemplate extends Component {
                   <FinalImpact
                     initCalculations={initCalculations}
                     newCalculations={newCalculations}
+                    setCurrentTab={this.setCurrentTab}
+                    setCurrentOptimzationTab={this.setCurrentOptimzationTab}
                   />
                 </div>
               </div>
