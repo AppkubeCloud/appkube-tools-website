@@ -37,8 +37,9 @@ class OptimizationOptions extends Component {
     this.setState({ currentTab: tabNumber });
   };
 
-  setNewTotalCost = (cost) => {
+  setNewCosts = (key, cost) => {
     this.setState({ totalCost: cost });
+    this.props.calculateNewCosts(key, cost);
   };
 
   renderTabs = (components) => {
@@ -74,7 +75,7 @@ class OptimizationOptions extends Component {
               data={item}
               totalCost={totalCost}
               setFinalImpactTabActive={this.props.setFinalImpactTabActive}
-              setNewTotalCost={this.setNewTotalCost}
+              setNewCosts={this.setNewCosts}
             />
           </div>
         );

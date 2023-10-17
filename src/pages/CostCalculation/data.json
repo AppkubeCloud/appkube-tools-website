@@ -120,8 +120,8 @@
           "leveragingSavingsPlan": {
             "title": "Leveraging savings plan/reservations for managed-database service",
             "description": "Cloud service providers would offer discounted rate in exchange for long-term commitment",
-            "amount": 1,
-            "effectUnit": "instance"
+            "amount": 0.1,
+            "effectUnit": "price"
           }
         }
       },

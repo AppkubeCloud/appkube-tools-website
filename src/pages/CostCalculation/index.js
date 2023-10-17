@@ -5,17 +5,22 @@ import FinalImpact from "./FinalImpact";
 import Header from "./Header";
 import ActualVsNonActual from "./ActualVsNonActual";
 import Footer from "./Footer";
+import data from "./data.json";
+import calculateTotalCost from "./costCalculator";
+
 class CostCalculationTemplate extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       currentTab: 1,
+      initCalculations: {},
+      newCalculations: {},
     };
   }
 
   componentDidMount() {
     window.addEventListener("scroll", this.isSticky);
+    this.calculateInitialCosts();
   }
 
   componentWillUnmount() {
@@ -36,8 +41,41 @@ class CostCalculationTemplate extends Component {
     this.setState({ currentTab: tabNumber });
   };
 
+  setInitCostCalculations = (calcData) => {
+    this.setState({ initCostCalculations: calcData });
+  };
+
+  calculateInitialCosts = () => {
+    let initCalcs = {};
+    let initTotalCost = 0;
+    data.startingScenario.costComponents.map((item) => {
+      initCalcs = {
+        ...initCalcs,
+        [item.component.toLowerCase()]: calculateTotalCost(
+          item,
+          item.component.toLowerCase()
+        ),
+      };
+    });
+
+    for (const property in initCalcs) {
+      initTotalCost += initCalcs[property];
+    }
+    initCalcs = { ...initCalcs, totalCost: initTotalCost };
+    this.setState({
+      initCalculations: initCalcs,
+      newCalculations: JSON.parse(JSON.stringify(initCalcs)),
+    });
+  };
+
+  calculateNewCosts = (key, cost) => {
+    let { newCalculations } = this.state;
+    newCalculations[key] = cost;
+    this.setState({ newCalculations });
+  };
+
   render() {
-    const { currentTab } = this.state;
+    const { currentTab, initCalculations, newCalculations } = this.state;
 
     return (
       <>
@@ -264,7 +302,7 @@ class CostCalculationTemplate extends Component {
                   id="StartingScenario"
                   className={currentTab === 1 ? "tab-pane active" : "tab-pane"}
                 >
-                  <StartingScenario />
+                  <StartingScenario initCalculations={initCalculations} />
                 </div>
 
                 <div
@@ -275,6 +313,7 @@ class CostCalculationTemplate extends Component {
                     setFinalImpactTabActive={() => {
                       this.setCurrentTab(3);
                     }}
+                    calculateNewCosts={this.calculateNewCosts}
                   />
                 </div>
                 <div
@@ -293,7 +332,10 @@ class CostCalculationTemplate extends Component {
                   id="FinalImpact"
                   className={currentTab === 5 ? "tab-pane active" : "tab-pane"}
                 >
-                  <FinalImpact />
+                  <FinalImpact
+                    initCalculations={initCalculations}
+                    newCalculations={newCalculations}
+                  />
                 </div>
               </div>
             </div>

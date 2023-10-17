@@ -116,6 +116,7 @@ class Compute extends Component {
       data.quantity = newInstances;
     }
     const newCost = calculateTotalCost(data, "compute");
+    this.props.setNewCosts("compute", newCost);
     if (newCost < calculatedAmount) {
       const diffAmount = calculatedAmount - newCost;
       totalCost = totalCost - diffAmount;
@@ -128,11 +129,13 @@ class Compute extends Component {
         totalBarWidth + (diffAmount / originalCalculatedAmount) * 100;
     }
     if (newCost > calculatedAmount) {
-      this.props.setNewTotalCost(
+      this.props.setNewCosts(
+        "totalCost",
         this.props.totalCost + Math.abs(newCost - calculatedAmount)
       );
     } else {
-      this.props.setNewTotalCost(
+      this.props.setNewCosts(
+        "totalCost",
         this.props.totalCost - Math.abs(newCost - calculatedAmount)
       );
     }

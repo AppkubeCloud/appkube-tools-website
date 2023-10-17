@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+
 class FinalImpact extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
   render() {
-    const {} = this.state;
+    const { initCalculations, newCalculations } = this.props;
     return (
       <>
         <div className="final-impact-content">
@@ -38,23 +40,25 @@ class FinalImpact extends Component {
             </div>
           </div>
           <div className="scenario-total">
-            <span>Starting scenario: $1,000,000</span>
+            <span>Starting scenario: ${initCalculations.totalCost}</span>
           </div>
           <div className="d-flex align-items-center mb-2">
             <div className="scenario-total-details">
-              <span className="computer">$600,000</span>
+              <span className="computer">${initCalculations.compute}</span>
             </div>
             <div className="scenario-total-details">
-              <span className="stronge">$150,000</span>
+              <span className="stronge">${initCalculations.storage}</span>
             </div>
             <div className="scenario-total-details">
-              <span className="network">$50,000</span>
+              <span className="network">${initCalculations.network}</span>
             </div>
             <div className="scenario-total-details">
-              <span className="managed-database">$100,000</span>
+              <span className="managed-database">
+                ${initCalculations.managed}
+              </span>
             </div>
             <div className="scenario-total-details">
-              <span className="other-services">$100,000</span>
+              <span className="other-services">${initCalculations.other}</span>
             </div>
           </div>
           <svg
@@ -118,23 +122,25 @@ class FinalImpact extends Component {
             </g>
           </svg>
           <div className="scenario-total">
-            <span>Final impact: $976,950</span>
+            <span>Final impact: ${newCalculations.totalCost}</span>
           </div>
           <div className="d-flex align-items-center">
             <div className="scenario-total-details">
-              <span className="computer">$600,000</span>
+              <span className="computer">${newCalculations.compute}</span>
             </div>
             <div className="scenario-total-details">
-              <span className="stronge">$150,000</span>
+              <span className="stronge">${newCalculations.storage}</span>
             </div>
             <div className="scenario-total-details">
-              <span className="network">$50,000</span>
+              <span className="network">${newCalculations.network}</span>
             </div>
             <div className="scenario-total-details">
-              <span className="managed-database">$100,000</span>
+              <span className="managed-database">
+                ${newCalculations.managed}
+              </span>
             </div>
             <div className="scenario-total-details">
-              <span className="other-services">$100,000</span>
+              <span className="other-services">${newCalculations.other}</span>
             </div>
           </div>
           <div className="optimization-details">

@@ -24,7 +24,7 @@ class Managed extends Component {
   componentDidMount() {
     window.addEventListener("scroll", this.isSticky);
     const { data, totalCost } = this.props;
-    const calcAmount = calculateTotalCost(data, "network");
+    const calcAmount = calculateTotalCost(data, "managed");
     this.setState({
       originalInstances: data.quantity,
       originalPrice: data.avgPrice,
@@ -153,7 +153,8 @@ class Managed extends Component {
     if (newInstances) {
       data.quantity = newInstances;
     }
-    const newCost = calculateTotalCost(data, "network");
+    const newCost = calculateTotalCost(data, "managed");
+    this.props.setNewCosts("managed", newCost);
     if (newCost < calculatedAmount) {
       const diffAmount = calculatedAmount - newCost;
       totalCost = totalCost - diffAmount;
@@ -166,11 +167,13 @@ class Managed extends Component {
         totalBarWidth + (diffAmount / originalCalculatedAmount) * 100;
     }
     if (newCost > calculatedAmount) {
-      this.props.setNewTotalCost(
+      this.props.setNewCosts(
+        "totalCost",
         this.props.totalCost + Math.abs(newCost - calculatedAmount)
       );
     } else {
-      this.props.setNewTotalCost(
+      this.props.setNewCosts(
+        "totalCost",
         this.props.totalCost - Math.abs(newCost - calculatedAmount)
       );
     }
