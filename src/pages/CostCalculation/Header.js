@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import navbarLogo from "../../img/navbar-logo.png";
-import cloudCostImg from "../../img/cloud-img.png";
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +20,7 @@ class Header extends Component {
   }
 
   isSticky = () => {
-    const header = document.querySelector(".header-container");
+    const header = document.querySelector(".header-sticky");
     const scrollTop = window.scrollY;
     if (scrollTop >= 600) {
       header.classList.add("is-sticky");
@@ -45,56 +44,7 @@ class Header extends Component {
 
     return (
       <>
-        <div className="header">
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-md-3 justify-content-end d-flex">
-                <img src={navbarLogo} alt="" />
-              </div>
-              <div className="col-md-5 justify-content-end d-flex">
-                <div className="navbar">
-                  <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Features</li>
-                    <li>Pricing</li>
-                    <li>Blog</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="col-md-4 justify-content-center d-flex">
-                <button type="button" class="btn btn-primary">
-                  Free Trail
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="optimization-part">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-6 ">
-                <img src={cloudCostImg} alt="" className="cost-img" />
-              </div>
-              <div className="col-md-6 d-flex align-items-center">
-                <div className="cost-contain">
-                  <span>Cloud cost-optimization simulator</span>
-                  <p>
-                    Cloud computing offers the greatest benefits when strong
-                    FinOps capabilities are in place to continuously manage and
-                    optimize costs.1
-                  </p>
-                  <p>
-                    This cloud cost-optimization simulator details the range of
-                    levers that can be used to substantially reduce costs for
-                    one illustrative scenario of an application on the cloud.2
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="header-container">
+        <div className="header-sticky">
           <div className="container">
             <div className="row align-items-center justify-content-between">
               <div className="col-md-6 col-sm-12">
@@ -129,6 +79,32 @@ class Header extends Component {
             style={{ transform: `scale(${scroll}, 1)`, opacity: `${scroll}` }}
           />
         </div>
+        <div className="header">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-md-3 justify-content-center d-flex">
+                <img src={navbarLogo} alt="" />
+              </div>
+              <div className="col-md-6 justify-content-center d-flex">
+                <div className="navbar">
+                  <ul>
+                    <li className="active">Home</li>
+                    <li>About</li>
+                    <li>Features</li>
+                    <li>Pricing</li>
+                    <li>Blog</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-md-3 justify-content-center d-flex">
+                <button type="button" class="btn btn-primary">
+                  Free Trail
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+     
       </>
     );
   }

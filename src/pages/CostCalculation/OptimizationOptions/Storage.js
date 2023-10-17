@@ -45,7 +45,7 @@ class Storage extends Component {
   isSticky = () => {
     const tabs = document.querySelector(".tabs-storage-charts");
     const tabsScrollTop = window.scrollY;
-    if (tabsScrollTop >= 50) {
+    if (tabsScrollTop >= 600) {
       tabs.classList.add("sticky");
     } else {
       tabs.classList.remove("sticky");

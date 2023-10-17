@@ -7,6 +7,8 @@ import ActualVsNonActual from "./ActualVsNonActual";
 import Footer from "./Footer";
 import data from "./data.json";
 import calculateTotalCost from "./costCalculator";
+import cloudCostImg from "../../img/cloud-img.png";
+import Architectural from "./Architectural";
 
 class CostCalculationTemplate extends Component {
   constructor(props) {
@@ -86,6 +88,31 @@ class CostCalculationTemplate extends Component {
       <>
         <Header />
         <div className="cost-main-container">
+          <div className="main-banner">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-6 ">
+                  <img src={cloudCostImg} alt="" className="cost-img" />
+                </div>
+                <div className="col-md-6 d-flex align-items-center">
+                  <div className="cost-contain">
+                    <span>Cloud cost-optimization simulator</span>
+                    <p>
+                      Cloud computing offers the greatest benefits when strong
+                      FinOps capabilities are in place to continuously manage
+                      and optimize costs.1
+                    </p>
+                    <p>
+                      This cloud cost-optimization simulator details the range
+                      of levers that can be used to substantially reduce costs
+                      for one illustrative scenario of an application on the
+                      cloud.2
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="container">
             <div className="tabs-container">
               <ul className="nav nav-pills" role="tablist">
@@ -101,7 +128,7 @@ class CostCalculationTemplate extends Component {
                     Starting scenario
                     <svg
                       preserveAspectRatio="none"
-                      width="30"
+                      width="25"
                       height="60"
                       viewBox="0 0 30 60"
                       fill="none"
@@ -151,7 +178,7 @@ class CostCalculationTemplate extends Component {
                     Optimization options
                     <svg
                       preserveAspectRatio="none"
-                      width="30"
+                      width="25"
                       height="60"
                       viewBox="0 0 30 60"
                       fill="none"
@@ -169,7 +196,7 @@ class CostCalculationTemplate extends Component {
                       </mask>
                       <g mask="url(#mask0)">
                         <rect
-                          width="30"
+                          width="25"
                           height="60"
                           id="background"
                           fill="currentColor"
@@ -201,7 +228,7 @@ class CostCalculationTemplate extends Component {
                     Actual vs Non Actual
                     <svg
                       preserveAspectRatio="none"
-                      width="30"
+                      width="25"
                       height="60"
                       viewBox="0 0 30 60"
                       fill="none"
@@ -219,7 +246,7 @@ class CostCalculationTemplate extends Component {
                       </mask>
                       <g mask="url(#mask0)">
                         <rect
-                          width="30"
+                          width="25"
                           height="60"
                           id="background"
                           fill="currentColor"
@@ -245,13 +272,13 @@ class CostCalculationTemplate extends Component {
                       currentTab === 4 ? "nav-link active" : "nav-link"
                     }
                     data-bs-toggle="pill"
-                    href="#ActulVsNonActual"
+                    href="#Architectural"
                     onClick={() => this.setCurrentTab(4)}
                   >
-                    Actual vs Non Actual
+                   Architectural
                     <svg
                       preserveAspectRatio="none"
-                      width="30"
+                      width="25"
                       height="60"
                       viewBox="0 0 30 60"
                       fill="none"
@@ -330,11 +357,12 @@ class CostCalculationTemplate extends Component {
                   <ActualVsNonActual />
                 </div>
                 <div
-                  id="ActulVsNonActual"
+                  id="Architectural"
                   className={currentTab === 4 ? "tab-pane active" : "tab-pane"}
                 >
-                  <ActualVsNonActual />
+                 <Architectural/>
                 </div>
+                
                 <div
                   id="FinalImpact"
                   className={currentTab === 5 ? "tab-pane active" : "tab-pane"}

@@ -45,7 +45,7 @@ class Compute extends Component {
   isSticky = () => {
     const tabs = document.querySelector(".tabs-charts");
     const tabsScrollTop = window.scrollY;
-    tabsScrollTop >= 50
+    tabsScrollTop >= 600
       ? tabs.classList.add("sticky")
       : tabs.classList.remove("sticky");
   };
@@ -183,8 +183,13 @@ class Compute extends Component {
       this.state;
     return (
       <>
-        <div className="tabs-charts">
+        <div className="card tabs-charts ">
           <div className="compute-contain">
+            <div className="compute-total-cost">
+              <span className="d-block total">Total cost</span>
+              <span className="d-block number">${this.props.totalCost}</span>
+              <span className="d-block compair">Compared to $21,490 last year</span>
+            </div>
             <div className="compute-cost">
               <span>{currentInstances} instances</span>
               <div
@@ -207,14 +212,6 @@ class Compute extends Component {
               ></div>
             </div>
           </div>
-          <div className="compute-total-cost d-flex justify-content-between">
-            <span>Total cost: ${this.props.totalCost}/year</span>
-            <button className="btn" onClick={() => this.props.setCurrentTab(1)}>
-              <span>Next</span>
-              <i className="fa-solid fa-arrow-right-long"></i>
-            </button>
-          </div>
-          <div className="charts-shadow"></div>
         </div>
         <div className="apply-boxes">{this.renderOptimzationApplyBoxes()}</div>
         <div className="content">

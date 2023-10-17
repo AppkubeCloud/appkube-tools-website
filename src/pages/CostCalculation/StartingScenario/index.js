@@ -19,7 +19,6 @@ class StartingScenario extends Component {
     return (
       <>
         <div className="content">
-          <div className="container">
             <p>
               In this scenario, a number of modules of a retail bank’s
               credit-scoring application have been migrated to cloud, primarily:
@@ -44,7 +43,6 @@ class StartingScenario extends Component {
               </small>
             </p>
           </div>
-        </div>
         {data.startingScenario.costComponents.map((item) => {
           const CurrentComponent = componentNames[item.component];
           return <CurrentComponent data={item} />;
