@@ -194,6 +194,11 @@ class Storage extends Component {
       <>
         <div className="tabs-storage-charts">
           <div className="compute-contain storage">
+          <div className="compute-total-cost">
+              <span className="d-block total">Total cost</span>
+              <span className="d-block number">${this.props.totalCost}</span>
+              <span className="d-block compair">Compared to $21,490 last year</span>
+            </div>
             <div className="compute-cost">
               <span>{currentInstances} TB</span>
               <div
@@ -215,13 +220,6 @@ class Storage extends Component {
                 style={{ width: `${totalBarWidth}%` }}
               ></div>
             </div>
-          </div>
-          <div className="compute-total-cost d-flex justify-content-between">
-            <span>Total cost: ${this.props.totalCost}/year</span>
-            <button className="btn" onClick={() => this.props.setCurrentTab(2)}>
-              <span>Next</span>
-              <i className="fa-solid fa-arrow-right-long"></i>
-            </button>
           </div>
           <div className="charts-shadow"></div>
         </div>

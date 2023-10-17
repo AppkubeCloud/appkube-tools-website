@@ -85,9 +85,14 @@ class OptimizationOptions extends Component {
     });
     return (
       <div className="optimization-option-tab">
-        <ul className="nav nav-pills" role="tablist">
-          {tabsNavJSX}
-        </ul>
+        <div className="d-flex justify-content-between align-items-center">
+          <ul className="nav nav-pills" role="tablist">
+            {tabsNavJSX}
+          </ul>
+          <button type="button" class="next-btn btn btn-primary">
+            Next
+          </button>
+        </div>
         <div className="tab-content">{tabsJSX}</div>
       </div>
     );

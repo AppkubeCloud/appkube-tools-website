@@ -169,7 +169,7 @@ class Compute extends Component {
           <div className="bottom-contain d-flex justify-content-between align-items-center">
             <span>{optimizeAmounts[item].description}</span>
             <span className="impact-details" onClick={this.handleShow}>
-              Impact details
+              Impact View
             </span>
           </div>
         </div>
@@ -214,39 +214,6 @@ class Compute extends Component {
           </div>
         </div>
         <div className="apply-boxes">{this.renderOptimzationApplyBoxes()}</div>
-        <div className="content">
-          <span className="sub-heading">
-            See total effect of all your optimization selections.
-          </span>
-          <a className="link" href="#optimization">
-            Final impact
-            <span>
-              <svg width="21" height="15" viewBox="0 0 21 15" fill="none">
-                <path d="M13 14L20 7.5L13 1" stroke="currentColor"></path>
-                <line x1="20" y1="7.5" y2="7.5" stroke="currentColor"></line>
-              </svg>
-            </span>
-          </a>
-          <hr className="mt-4 mb-5" />
-          <p>
-            <sup>1</sup>Activating these levers can typically be implemented as
-            configuration changes without substantial revision to the
-            application architecture. Deriving full value from these levers also
-            requires companies to have the right enablers in place.
-          </p>
-          <p>
-            <sup>2</sup>This is a generalized illustrative example. The specific
-            cloud services and pricing information are based on offerings from
-            major cloud service providers and do not refer to any particular
-            cloud service provider. The list of optimization levers is based on
-            our experience serving companies across industries and geographies
-            on the topic of cloud cost optimization and does not represent all
-            possible optimization options. The impact for each of the levers
-            would heavily depend on specifics of application architecture and
-            environment configuration; ranges provided represent the most common
-            scenarios.
-          </p>
-        </div>
         <Modal size="lg" show={show} onHide={this.handleClose}>
           <div className="modal-header">
             <button

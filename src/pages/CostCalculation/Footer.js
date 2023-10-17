@@ -5,7 +5,8 @@ class Footer extends Component {
   render() {
     return (
       <div className="footer">
-        <div className="container ">
+        <div className="w-75 mx-auto">
+        <div className="container-fluid">
         <div className="menu-list">
           <div className="row ">
            
@@ -123,6 +124,7 @@ class Footer extends Component {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     );
