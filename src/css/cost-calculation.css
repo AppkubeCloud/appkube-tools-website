@@ -186,6 +186,7 @@ button:focus:active {
     display: inline-flex;
     position: relative;
     width: 223px;
+    height: 55px;
 }
 
 .tabs-container .nav-pills .nav-item .nav-link {
@@ -200,7 +201,7 @@ button:focus:active {
     line-height: 25px;
     font-weight: 500;
     color: #000000;
-    background-color: rgb(230, 230, 230);
+    background-color:#C6CBD9;
     transition: color 0s ease-in-out, background-color 0s ease-in-out, border-color 0s ease-in-out;
 }
 
@@ -218,7 +219,7 @@ button:focus:active {
 }
 
 .tabs-container .nav-pills .nav-item .nav-link svg #block {
-    color: rgb(230, 230, 230);
+    color:#C6CBD9;
 }
 
 .tabs-container .nav-pills .nav-item .nav-link.active svg #block {
@@ -596,7 +597,12 @@ button:focus:active {
     line-height: 12px;
     color: #383874;
 }
-
+.tabs-container .optimization-option-tab .tab-content .tab-pane .tabs-storage-charts{
+    position: relative;
+    padding: 24px;
+    border: none;
+    box-shadow: 0px 100px 80px 0px #6C49AC12;
+}
 .tabs-container .optimization-option-tab .tab-content .storage-contain {
     margin: 10px 0px;
 }
@@ -639,7 +645,12 @@ button:focus:active {
     display: flex;
     margin-top: 5px;
 }
-
+.tabs-container .optimization-option-tab .tab-content .tab-pane .tabs-network-charts{
+    position: relative;
+    padding: 24px;
+    border: none;
+    box-shadow: 0px 100px 80px 0px #6C49AC12;
+}
 .tabs-container .optimization-option-tab .tab-content .network-contain .network-cost span {
     color: white;
     font-size: 18px;
@@ -654,7 +665,12 @@ button:focus:active {
     color: rgb(5, 28, 44);
 }
 
-
+.tabs-container .optimization-option-tab .tab-content .tab-pane .tabs-managed-charts{
+    position: relative;
+    padding: 24px;
+    border: none;
+    box-shadow: 0px 100px 80px 0px #6C49AC12;
+}
 .tabs-container .optimization-option-tab .tab-content .managed-database-contain {
     margin: 10px 0px;
 }
@@ -790,81 +806,7 @@ button:focus:active {
     background: linear-gradient(-90deg, rgb(255, 255, 255) 75%, rgba(255, 255, 255, 0) 100%);
 } */
 
-.tabs-storage-charts {
-    position: relative;
-}
 
-
-.tabs-storage-charts::before,
-.tabs-storage-charts::after {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 100%;
-    height: 6px;
-    left: 0px;
-    background: linear-gradient(90deg, rgb(255, 255, 255) 75%, rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-    width: calc((100% - 1000px) / 2);
-}
-
-.tabs-storage-charts::after {
-    right: 0px;
-    left: auto;
-    background: linear-gradient(-90deg, rgb(255, 255, 255) 75%, rgba(255, 255, 255, 0) 100%);
-}
-
-
-
-
-.tabs-network-charts {
-    position: relative;
-}
-
-.tabs-network-charts::before,
-.tabs-network-charts::after {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 100%;
-    height: 6px;
-    left: 0px;
-    background: linear-gradient(90deg, rgb(255, 255, 255) 75%, rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-    width: calc((100% - 1000px) / 2);
-}
-
-.tabs-network-charts::after {
-    right: 0px;
-    left: auto;
-    background: linear-gradient(-90deg, rgb(255, 255, 255) 75%, rgba(255, 255, 255, 0) 100%);
-}
-
-
-
-
-.tabs-managed-charts {
-    position: relative;
-}
-
-.tabs-managed-charts::before,
-.tabs-managed-charts::after {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 100%;
-    height: 6px;
-    left: 0px;
-    background: linear-gradient(90deg, rgb(255, 255, 255) 75%, rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-    width: calc((100% - 1000px) / 2);
-}
-
-.tabs-managed-charts::after {
-    right: 0px;
-    left: auto;
-    background: linear-gradient(-90deg, rgb(255, 255, 255) 75%, rgba(255, 255, 255, 0) 100%);
-}
 
 .modal .modal-dialog {
     width: 100%;

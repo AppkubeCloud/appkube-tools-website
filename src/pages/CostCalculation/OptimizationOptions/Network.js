@@ -192,73 +192,37 @@ class Network extends Component {
 
     return (
       <>
-        <div className="tabs-network-charts">
+        <div className="card tabs-network-charts">
           <div className="compute-contain network">
+            <div className="compute-total-cost">
+              <span className="d-block total">Total cost</span>
+              <span className="d-block number"> ${this.props.totalCost}</span>
+              <span className="d-block compair">
+                Compared to $21,490 last year
+              </span>
+            </div>
+
             <div className="compute-cost">
               <span>{currentInstances} TB/day</span>
-              <div
-                className="progress"
-                style={{ width: `${instancesBarWidth}%` }}
-              ></div>
+              <div className="progress">
+                <div style={{ width: `${instancesBarWidth}%` }}></div>
+              </div>
             </div>
             <div className="compute-cost">
               <span>${currentPrice}/GB transferred</span>
-              <div
-                className="progress"
-                style={{ width: `${priceBarWidth}%` }}
-              ></div>
+              <div className="progress">
+                <div style={{ width: `${priceBarWidth}%` }}></div>
+              </div>
             </div>
             <div className="compute-cost">
               <span>${this.state.calculatedAmount}</span>
-              <div
-                className="progress"
-                style={{ width: `${totalBarWidth}%` }}
-              ></div>
+              <div className="progress">
+                <div style={{ width: `${totalBarWidth}%` }}></div>
+              </div>
             </div>
           </div>
-          <div className="compute-total-cost d-flex justify-content-between">
-            <span>Total cost: ${this.props.totalCost}/year</span>
-            <button className="btn" onClick={() => this.props.setCurrentTab(3)}>
-              <span>Next</span>
-              <i className="fa-solid fa-arrow-right-long"></i>
-            </button>
-          </div>
-          <div className="charts-shadow"></div>
         </div>
         <div className="apply-boxes">{this.renderOptimzationApplyBoxes()}</div>
-        <div className="content">
-          <span className="sub-heading">
-            See the total effect of all your optimization selections.
-          </span>
-          <a className="link" href="#optimization">
-            Final impact
-            <span>
-              <svg width="21" height="15" viewBox="0 0 21 15" fill="none">
-                <path d="M13 14L20 7.5L13 1" stroke="currentColor"></path>
-                <line x1="20" y1="7.5" y2="7.5" stroke="currentColor"></line>
-              </svg>
-            </span>
-          </a>
-          <hr className="mt-4 mb-5" />
-          <p>
-            <sup>1</sup> Activating these levers can typically be implemented as
-            configuration changes without substantial revision to the
-            application architecture. Deriving full value from these levers also
-            requires companies to have the right enablers in place.
-          </p>
-          <p>
-            <sup>2</sup> This is a generalized illustrative example. The
-            specific cloud services and pricing information are based on
-            offerings from major cloud service providers and do not refer to any
-            particular cloud service provider. The list of optimization levers
-            is based on our experience serving companies across industries and
-            geographies on the topic of cloud cost optimization and does not
-            represent all possible optimization options. The impact for each of
-            the levers would heavily depend on specifics of application
-            architecture and environment configuration; ranges provided
-            represent the most common scenarios.
-          </p>
-        </div>
         <Modal size="lg" show={show} onHide={this.handleClose}>
           <div className="modal-header">
             <button
