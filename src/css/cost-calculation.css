@@ -543,10 +543,13 @@ button:focus:active {
     background: #DBDFF1;
 }
 
-.tabs-container .optimization-option-tab .tab-content .compute-contain .compute-cost .progress::after {
+.tabs-container .optimization-option-tab .tab-content .compute-contain .compute-cost .progress div {
     width: 75%;
     background-color: #FF708B;
-
+    height: 8px;
+    display: block;
+    position: relative;
+    z-index: 1;
 }
 
 .tabs-container .optimization-option-tab .tab-content .compute-total-cost .btn {
