@@ -62,7 +62,7 @@ button:focus:active {
 }
 
 .main-banner {
-    padding: 40px 0px;
+    padding: 40px 0px 60px 0px;
     background-color: #060B27;
     font-family: 'Inter', sans-serif;
 }
@@ -73,14 +73,14 @@ button:focus:active {
 }
 
 .main-banner .cost-contain span {
-    font-size: 32px;
+    font-size: 33px;
     line-height: 40px;
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
 }
 
 .main-banner .cost-contain p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 24px;
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
@@ -173,8 +173,8 @@ button:focus:active {
 }
 
 .tabs-container {
-    display: table;
-    margin: 90px auto 0px;
+    display: block;
+    margin-top: 60px;
 }
 
 .tabs-container .nav-pills {
@@ -258,7 +258,6 @@ button:focus:active {
     width: 100%;
     padding: 0;
     margin-bottom: 30px;
-    box-shadow: 0px 100px 80px 0px #6C49AC12;
 
 }
 
@@ -320,11 +319,13 @@ button:focus:active {
     display: block;
     padding: 24px 72px 24px 24px;
     background-color: #F9FBFF;
-    border-radius: 5px;
+    border-radius: 0px 0px 7px 7px;
+    box-shadow: 0px 15px 15px 0px rgba(108, 73, 172, 0.2);
+
 }
 
 .tabs-container .scenario-services.other .service-content {
-    background-color: #FFFFFF;
+    background-color: #F9FBFF;
 }
 
 .tabs-container .scenario-services .service-content .open-content {
@@ -523,8 +524,26 @@ button:focus:active {
 }
 
 .tabs-container .optimization-option-tab .tab-content .compute-contain .compute-cost .progress {
-    background-color: #FF708B;
+
     height: 8px;
+    position: relative;
+}
+.tabs-container .optimization-option-tab .tab-content .compute-contain .compute-cost .progress::before, .progress::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.tabs-container .optimization-option-tab .tab-content .compute-contain .compute-cost .progress::before{
+    width: 100%;
+    background: #DBDFF1;
+}
+.tabs-container .optimization-option-tab .tab-content .compute-contain .compute-cost .progress::after{
+    width: 75%;
+    background-color: #FF708B;
+  
 }
 
 .tabs-container .optimization-option-tab .tab-content .compute-total-cost .btn {
@@ -702,15 +721,14 @@ button:focus:active {
     padding-left: 15px;
 }
 
-.tabs-container .optimization-option-tab .tab-content .top-contain .form-switch .form-check-input:checked+.form-check-label {
-    color: rgb(34, 81, 255);
-}
 
 .tabs-container .optimization-option-tab .tab-content .bottom-contain {
     padding: 25px;
     display: block;
-    border-radius: 5px;
+    border-radius: 0px 0px 7px 7px;
     background-color: #FFFFFF;
+    box-shadow: 0px 100px 80px 0px #6C49AC12;
+
 }
 
 .tabs-container .optimization-option-tab .tab-content .bottom-contain span {
@@ -1207,8 +1225,16 @@ button:focus:active {
     color: #FFFFFF;
 
 }
-
-.footer .copywrite-details .social-icon {
+.footer .copyright-details{
+    margin-top: 20px;
+}
+.footer .copyright-details .social-icon ul{
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+.footer .copyright-details .social-icon ul li{
+    list-style: none;
     margin-left: 20px;
     border: 1px solid #282D45;
     border-radius: 5px;
@@ -1218,22 +1244,27 @@ button:focus:active {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+.footer .copyright-details .social-icon ul li a{
     color: #8F9BB7;
 }
 
-.footer .copywrite-details .social-icon:hover {
+.footer .copyright-details .social-icon ul li:hover {
     border-color: #FFFFFF;
+
+    
+}
+.footer .copyright-details .social-icon ul li:hover a{
     color: #FFFFFF;
 }
-
-.footer .copywrite-details span {
+.footer .copyright-details span {
     color: #8F9BB7;
     font-weight: 400;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
 }
 
-.footer .copywrite-details span a {
+.footer .copyright-details span a {
     text-decoration: none;
     color: #F6F6F7;
 }
