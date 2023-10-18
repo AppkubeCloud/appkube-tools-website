@@ -30,7 +30,7 @@ button:focus:active {
     margin-bottom: 0;
 }
 
-.header .navbar ul li.active {
+.header .navbar ul li.active a {
     color: #FFFFFF;
 }
 
@@ -43,8 +43,13 @@ button:focus:active {
     cursor: pointer;
 }
 
-.header .navbar ul li:hover {
+.header .navbar ul li a:hover {
     color: #FFFFFF;
+}
+
+.header .navbar ul li a {
+    text-decoration: none;
+    color: #8F9BB7;
 }
 
 .header .btn {
@@ -191,6 +196,7 @@ button:focus:active {
     border-radius: 0;
     border: none;
     font-size: 15px;
+    padding-left: 33px;
     line-height: 25px;
     font-weight: 500;
     color: #000000;
@@ -420,7 +426,7 @@ button:focus:active {
 
 .tabs-container .optimization-option-tab .nav-pills .nav-item {
     display: inline-flex;
-    width: 155px;
+    width: 180px;
     height: 45px;
 }
 
@@ -515,10 +521,12 @@ button:focus:active {
     line-height: 16px;
     font-family: 'Roboto', sans-serif;
 }
-.tabs-container .optimization-option-tab .tab-content .compute-contain .compute-cost .progress{
+
+.tabs-container .optimization-option-tab .tab-content .compute-contain .compute-cost .progress {
     background-color: #FF708B;
     height: 8px;
 }
+
 .tabs-container .optimization-option-tab .tab-content .compute-total-cost .btn {
     padding: 0;
     font-size: 16px;
@@ -670,16 +678,16 @@ button:focus:active {
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
-    color:#FFFFFF;
+    color: #FFFFFF;
 }
 
 .tabs-container .optimization-option-tab .tab-content .top-contain .form-switch .form-check-input {
     width: 37px;
     padding: 4px;
     cursor: pointer;
-    background-color:#B7B7B7;
+    background-color: #B7B7B7;
     height: 17px;
-border: none;
+    border: none;
 }
 
 .tabs-container .optimization-option-tab .tab-content .top-contain .form-switch .form-check-input:checked {
@@ -690,7 +698,7 @@ border: none;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
-    color:#FFFFFF;
+    color: #FFFFFF;
     padding-left: 15px;
 }
 
@@ -708,7 +716,7 @@ border: none;
 .tabs-container .optimization-option-tab .tab-content .bottom-contain span {
     font-size: 13px;
     line-height: 18px;
-    color:#000000;
+    color: #000000;
     font-weight: 400;
 }
 
@@ -1195,6 +1203,11 @@ border: none;
 
 }
 
+.footer .menu-list .menu ul li a:hover {
+    color: #FFFFFF;
+
+}
+
 .footer .copywrite-details .social-icon {
     margin-left: 20px;
     border: 1px solid #282D45;
@@ -1208,6 +1221,11 @@ border: none;
     color: #8F9BB7;
 }
 
+.footer .copywrite-details .social-icon:hover {
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
 .footer .copywrite-details span {
     color: #8F9BB7;
     font-weight: 400;
@@ -1218,6 +1236,12 @@ border: none;
 .footer .copywrite-details span a {
     text-decoration: none;
     color: #F6F6F7;
+}
+
+.architectural-info .next-btn {
+    background-color: #384CFF;
+    width: 60px;
+    height: 38px;
 }
 
 @media (max-width: 992px) {
@@ -1276,6 +1300,8 @@ border: none;
         font-size: 16px;
         line-height: 18px;
     }
+
+
 
 
 }

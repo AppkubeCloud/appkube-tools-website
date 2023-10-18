@@ -88,11 +88,21 @@ class Header extends Component {
               <div className="col-md-6 justify-content-center d-flex">
                 <div className="navbar">
                   <ul>
-                    <li className="active">Home</li>
-                    <li>About</li>
-                    <li>Features</li>
-                    <li>Pricing</li>
-                    <li>Blog</li>
+                    <li className="active">
+                      <a href="#">Home</a>
+                    </li>
+                    <li>
+                      <a href="#">About</a>
+                    </li>
+                    <li>
+                      <a href="#">Features</a>
+                    </li>
+                    <li>
+                      <a href="#">Pricing</a>
+                    </li>
+                    <li>
+                      <a href="#">Blog</a>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -104,7 +114,6 @@ class Header extends Component {
             </div>
           </div>
         </div>
-     
       </>
     );
   }
