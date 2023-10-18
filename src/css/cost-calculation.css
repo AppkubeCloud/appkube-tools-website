@@ -528,7 +528,9 @@ button:focus:active {
     height: 8px;
     position: relative;
 }
-.tabs-container .optimization-option-tab .tab-content .compute-contain .compute-cost .progress::before, .progress::after{
+
+.tabs-container .optimization-option-tab .tab-content .compute-contain .compute-cost .progress::before,
+.progress::after {
     content: "";
     position: absolute;
     top: 0;
@@ -536,14 +538,15 @@ button:focus:active {
     height: 100%;
 }
 
-.tabs-container .optimization-option-tab .tab-content .compute-contain .compute-cost .progress::before{
+.tabs-container .optimization-option-tab .tab-content .compute-contain .compute-cost .progress::before {
     width: 100%;
     background: #DBDFF1;
 }
-.tabs-container .optimization-option-tab .tab-content .compute-contain .compute-cost .progress::after{
+
+.tabs-container .optimization-option-tab .tab-content .compute-contain .compute-cost .progress::after {
     width: 75%;
     background-color: #FF708B;
-  
+
 }
 
 .tabs-container .optimization-option-tab .tab-content .compute-total-cost .btn {
@@ -707,6 +710,14 @@ button:focus:active {
     background-color: #B7B7B7;
     height: 17px;
     border: none;
+}
+
+.tabs-container .optimization-option-tab .tab-content .top-contain .form-switch .form-check-input {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/%3e%3c/svg%3e");
+}
+
+.tabs-container .optimization-option-tab .tab-content .top-contain .form-switch .form-check-input:focus {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/%3e%3c/svg%3e");
 }
 
 .tabs-container .optimization-option-tab .tab-content .top-contain .form-switch .form-check-input:checked {
@@ -1225,15 +1236,18 @@ button:focus:active {
     color: #FFFFFF;
 
 }
-.footer .copyright-details{
+
+.footer .copyright-details {
     margin-top: 20px;
 }
-.footer .copyright-details .social-icon ul{
+
+.footer .copyright-details .social-icon ul {
     display: flex;
     padding: 0;
     margin: 0;
 }
-.footer .copyright-details .social-icon ul li{
+
+.footer .copyright-details .social-icon ul li {
     list-style: none;
     margin-left: 20px;
     border: 1px solid #282D45;
@@ -1245,18 +1259,21 @@ button:focus:active {
     justify-content: center;
     cursor: pointer;
 }
-.footer .copyright-details .social-icon ul li a{
+
+.footer .copyright-details .social-icon ul li a {
     color: #8F9BB7;
 }
 
 .footer .copyright-details .social-icon ul li:hover {
     border-color: #FFFFFF;
 
-    
+
 }
-.footer .copyright-details .social-icon ul li:hover a{
+
+.footer .copyright-details .social-icon ul li:hover a {
     color: #FFFFFF;
 }
+
 .footer .copyright-details span {
     color: #8F9BB7;
     font-weight: 400;
