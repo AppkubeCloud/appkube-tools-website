@@ -36,15 +36,17 @@ class Architectural extends Component {
                 </div>
                 <div className="compute-cost">
                   <span>150 instances</span>
-                  <div className="progress"></div>
+                  <div className="progress">
+                    <div></div>
+                  </div>
                 </div>
                 <div className="compute-cost">
                   <span>$0.45/hour</span>
-                  <div className="progress"></div>
+                  <div className="progress"> <div></div></div>
                 </div>
                 <div className="compute-cost">
                   <span>$ 600,000 </span>
-                  <div className="progress"></div>
+                  <div className="progress"> <div></div></div>
                 </div>
               </div>
             </div>

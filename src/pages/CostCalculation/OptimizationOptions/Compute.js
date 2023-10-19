@@ -194,24 +194,23 @@ class Compute extends Component {
             </div>
             <div className="compute-cost">
               <span>{currentInstances} instances</span>
-              <div
-                className="progress"
-                style={{ width: `${this.state.instancesBarWidth}%` }}
-              ></div>
+              <div className="progress">
+                <div
+                  style={{ width: `${this.state.instancesBarWidth}%` }}
+                ></div>
+              </div>
             </div>
             <div className="compute-cost">
               <span>${currentPrice}/hour</span>
-              <div
-                className="progress"
-                style={{ width: `${this.state.priceBarWidth}%` }}
-              ></div>
+              <div className="progress">
+                <div style={{ width: `${this.state.priceBarWidth}%` }}></div>
+              </div>
             </div>
             <div className="compute-cost">
               <span>${calculatedAmount} </span>
-              <div
-                className="progress"
-                style={{ width: `${this.state.totalBarWidth}%` }}
-              ></div>
+              <div className="progress">
+                <div style={{ width: `${this.state.totalBarWidth}%` }}></div>
+              </div>
             </div>
           </div>
         </div>
