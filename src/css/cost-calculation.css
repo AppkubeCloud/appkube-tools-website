@@ -201,7 +201,7 @@ button:focus:active {
     line-height: 25px;
     font-weight: 500;
     color: #000000;
-    background-color:#C6CBD9;
+    background-color: #C6CBD9;
     transition: color 0s ease-in-out, background-color 0s ease-in-out, border-color 0s ease-in-out;
 }
 
@@ -219,7 +219,7 @@ button:focus:active {
 }
 
 .tabs-container .nav-pills .nav-item .nav-link svg #block {
-    color:#C6CBD9;
+    color: #C6CBD9;
 }
 
 .tabs-container .nav-pills .nav-item .nav-link.active svg #block {
@@ -597,12 +597,14 @@ button:focus:active {
     line-height: 12px;
     color: #383874;
 }
-.tabs-container .optimization-option-tab .tab-content .tab-pane .tabs-storage-charts{
+
+.tabs-container .optimization-option-tab .tab-content .tab-pane .tabs-storage-charts {
     position: relative;
     padding: 24px;
     border: none;
     box-shadow: 0px 100px 80px 0px #6C49AC12;
 }
+
 .tabs-container .optimization-option-tab .tab-content .storage-contain {
     margin: 10px 0px;
 }
@@ -645,12 +647,14 @@ button:focus:active {
     display: flex;
     margin-top: 5px;
 }
-.tabs-container .optimization-option-tab .tab-content .tab-pane .tabs-network-charts{
+
+.tabs-container .optimization-option-tab .tab-content .tab-pane .tabs-network-charts {
     position: relative;
     padding: 24px;
     border: none;
     box-shadow: 0px 100px 80px 0px #6C49AC12;
 }
+
 .tabs-container .optimization-option-tab .tab-content .network-contain .network-cost span {
     color: white;
     font-size: 18px;
@@ -665,12 +669,13 @@ button:focus:active {
     color: rgb(5, 28, 44);
 }
 
-.tabs-container .optimization-option-tab .tab-content .tab-pane .tabs-managed-charts{
+.tabs-container .optimization-option-tab .tab-content .tab-pane .tabs-managed-charts {
     position: relative;
     padding: 24px;
     border: none;
     box-shadow: 0px 100px 80px 0px #6C49AC12;
 }
+
 .tabs-container .optimization-option-tab .tab-content .managed-database-contain {
     margin: 10px 0px;
 }
@@ -1164,7 +1169,6 @@ button:focus:active {
 .footer .menu-list .menu ul li {
     list-style: none;
     margin-top: 10px;
-    cursor: pointer;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     line-height: 25px;
@@ -1174,7 +1178,7 @@ button:focus:active {
 .footer .menu-list .menu ul li a {
     text-decoration: none;
     color: #8F9BB7;
-
+    cursor: pointer;
 }
 
 .footer .menu-list .menu ul li a:hover {
@@ -1237,6 +1241,76 @@ button:focus:active {
     height: 38px;
 }
 
+.actual-non-actual-charts {
+    background-color: #F9FBFF;
+    padding: 24px;
+}
+
+.actual-non-actual-charts .charts {
+    padding: 24px;
+    border-radius: 0;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    ;
+}
+
+.actual-non-actual-charts .charts .total-sepnd {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 18px;
+    color: #9F9FDA;
+}
+
+.actual-non-actual-charts .charts .number {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 45px;
+    color: #383874;
+}
+
+.actual-non-actual-charts .charts .text {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 18px;
+    color: #383874;
+}
+
+.actual-non-actual-charts .charts .form-switch .form-check-input {
+    width: 37px;
+    cursor: pointer;
+    background-color: #B7B7B7;
+    height: 17px;
+    border: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/%3e%3c/svg%3e");
+}
+
+.actual-non-actual-charts .charts .form-switch .form-check-input:focus {
+
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/%3e%3c/svg%3e");
+
+}
+
+.actual-non-actual-charts .charts .form-switch .form-check-input:checked {
+    background-color: #384CFF;
+}
+
+.actual-non-actual-charts .charts .form-switch .form-check-label {
+    padding-left: 10px;
+    line-height: 28px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #383874;
+}
+.actual-non-actual-charts .charts{
+    margin-bottom: 40px;
+}
+.actual-non-actual-charts .charts .pie-chart canvas {
+    width: 500px !important;
+    height: auto !important;
+    display: block;
+}
+.actual-non-actual-charts .charts .bar-chart canvas{
+    width: 100%;
+}
 @media (max-width: 992px) {
     .tabs-container {
         width: 100%;
@@ -1292,6 +1366,7 @@ button:focus:active {
         width: 30%;
         font-size: 16px;
         line-height: 18px;
+
     }
 
 
