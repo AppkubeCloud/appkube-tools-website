@@ -18,6 +18,10 @@ class CostCalculationTemplate extends Component {
       initCalculations: {},
       newCalculations: {},
       currentOptimzeTab: 0,
+      componentsData: JSON.parse(
+        JSON.stringify(data.startingScenario.costComponents)
+      ),
+      modifiedComponentsData: [],
     };
   }
 
@@ -53,9 +57,10 @@ class CostCalculationTemplate extends Component {
   };
 
   calculateInitialCosts = () => {
+    const { componentsData } = this.state;
     let initCalcs = {};
     let initTotalCost = 0;
-    data.startingScenario.costComponents.map((item) => {
+    componentsData.map((item) => {
       initCalcs = {
         ...initCalcs,
         [item.component.toLowerCase()]: calculateTotalCost(
@@ -70,20 +75,49 @@ class CostCalculationTemplate extends Component {
     }
     initCalcs = { ...initCalcs, totalCost: initTotalCost };
     this.setState({
-      initCalculations: initCalcs,
+      initCalculations: JSON.parse(JSON.stringify(initCalcs)),
       newCalculations: JSON.parse(JSON.stringify(initCalcs)),
     });
   };
 
-  calculateNewCosts = (key, cost) => {
-    let { newCalculations } = this.state;
-    newCalculations[key] = cost;
+  calculateNewCosts = (data, cost) => {
+    let { newCalculations, componentsData, modifiedComponentsData } =
+      this.state;
+    if (data === "totalCost") {
+      newCalculations[data] = cost;
+    } else {
+      newCalculations[data.component.toLowerCase()] = cost;
+      if (modifiedComponentsData.length) {
+        modifiedComponentsData = modifiedComponentsData.map((item) => {
+          if (item.component === data.component) {
+            item = data;
+            return item;
+          }
+          return item;
+        });
+      } else {
+        modifiedComponentsData = componentsData.map((item) => {
+          if (item.component === data.component) {
+            item = data;
+            return item;
+          }
+          return item;
+        });
+      }
+
+      this.setState({ modifiedComponentsData });
+    }
     this.setState({ newCalculations });
   };
 
   render() {
-    const { currentTab, initCalculations, newCalculations, currentOptimzeTab } =
-      this.state;
+    const {
+      currentTab,
+      initCalculations,
+      newCalculations,
+      currentOptimzeTab,
+      modifiedComponentsData,
+    } = this.state;
     return (
       <>
         <Header />
@@ -275,7 +309,7 @@ class CostCalculationTemplate extends Component {
                     href="#Architectural"
                     onClick={() => this.setCurrentTab(4)}
                   >
-                   Architectural
+                    Architectural
                     <svg
                       preserveAspectRatio="none"
                       width="25"
@@ -336,7 +370,6 @@ class CostCalculationTemplate extends Component {
                 >
                   <StartingScenario initCalculations={initCalculations} />
                 </div>
-
                 <div
                   id="OptimizationOptions"
                   className={currentTab === 2 ? "tab-pane active" : "tab-pane"}
@@ -360,9 +393,8 @@ class CostCalculationTemplate extends Component {
                   id="Architectural"
                   className={currentTab === 4 ? "tab-pane active" : "tab-pane"}
                 >
-                 <Architectural/>
+                  <Architectural />
                 </div>
-                
                 <div
                   id="FinalImpact"
                   className={currentTab === 5 ? "tab-pane active" : "tab-pane"}
@@ -372,6 +404,7 @@ class CostCalculationTemplate extends Component {
                     newCalculations={newCalculations}
                     setCurrentTab={this.setCurrentTab}
                     setCurrentOptimzationTab={this.setCurrentOptimzationTab}
+                    modifiedComponentsData={modifiedComponentsData}
                   />
                 </div>
               </div>

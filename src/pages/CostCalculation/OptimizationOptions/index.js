@@ -37,9 +37,13 @@ class OptimizationOptions extends Component {
     this.props.setCurrentOptimzationTab(tabNumber);
   };
 
-  setNewCosts = (key, cost) => {
+  setNewCosts = (data, cost) => {
     this.setState({ totalCost: cost });
-    this.props.calculateNewCosts(key, cost);
+    if (data === "totalCost") {
+      this.props.calculateNewCosts("totalCost", cost);
+    } else {
+      this.props.calculateNewCosts(data, cost);
+    }
   };
 
   renderTabs = (components) => {

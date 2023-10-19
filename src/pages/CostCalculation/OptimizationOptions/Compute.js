@@ -31,7 +31,7 @@ class Compute extends Component {
       currentInstances: data.quantity,
       currentPrice: data.avgPrice,
       optimizeAmounts: data.optimizationOptions,
-      data: data,
+      data: JSON.parse(JSON.stringify(data)),
       calculatedAmount: calcAmount,
       originalCalculatedAmount: calcAmount,
       totalCost: totalCost,
@@ -116,7 +116,7 @@ class Compute extends Component {
       data.quantity = newInstances;
     }
     const newCost = calculateTotalCost(data, "compute");
-    this.props.setNewCosts("compute", newCost);
+    this.props.setNewCosts(data, newCost);
     if (newCost < calculatedAmount) {
       const diffAmount = calculatedAmount - newCost;
       totalCost = totalCost - diffAmount;
@@ -188,7 +188,9 @@ class Compute extends Component {
             <div className="compute-total-cost">
               <span className="d-block total">Total cost</span>
               <span className="d-block number">${this.props.totalCost}</span>
-              <span className="d-block compair">Compared to $21,490 last year</span>
+              <span className="d-block compair">
+                Compared to $21,490 last year
+              </span>
             </div>
             <div className="compute-cost">
               <span>{currentInstances} instances</span>

@@ -31,7 +31,7 @@ class Managed extends Component {
       currentInstances: data.quantity,
       currentPrice: data.avgPrice,
       optimizeAmounts: data.optimizationOptions,
-      data: data,
+      data: JSON.parse(JSON.stringify(data)),
       calculatedAmount: calcAmount,
       originalCalculatedAmount: calcAmount,
       totalCost: totalCost,
@@ -154,7 +154,7 @@ class Managed extends Component {
       data.quantity = newInstances;
     }
     const newCost = calculateTotalCost(data, "managed");
-    this.props.setNewCosts("managed", newCost);
+    this.props.setNewCosts(data, newCost);
     if (newCost < calculatedAmount) {
       const diffAmount = calculatedAmount - newCost;
       totalCost = totalCost - diffAmount;

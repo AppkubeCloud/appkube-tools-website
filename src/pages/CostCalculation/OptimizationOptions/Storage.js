@@ -31,7 +31,7 @@ class Storage extends Component {
       currentInstances: data.quantity,
       currentPrice: data.avgPrice,
       optimizeAmounts: data.optimizationOptions,
-      data: data,
+      data: JSON.parse(JSON.stringify(data)),
       calculatedAmount: calcAmount,
       originalCalculatedAmount: calcAmount,
       totalCost: totalCost,
@@ -154,7 +154,7 @@ class Storage extends Component {
       data.quantity = newInstances;
     }
     const newCost = calculateTotalCost(data, "storage");
-    this.props.setNewCosts("storage", newCost);
+    this.props.setNewCosts(data, newCost);
     if (newCost < calculatedAmount) {
       const diffAmount = calculatedAmount - newCost;
       totalCost = totalCost - diffAmount;
@@ -194,10 +194,12 @@ class Storage extends Component {
       <>
         <div className="tabs-storage-charts">
           <div className="compute-contain storage">
-          <div className="compute-total-cost">
+            <div className="compute-total-cost">
               <span className="d-block total">Total cost</span>
               <span className="d-block number">${this.props.totalCost}</span>
-              <span className="d-block compair">Compared to $21,490 last year</span>
+              <span className="d-block compair">
+                Compared to $21,490 last year
+              </span>
             </div>
             <div className="compute-cost">
               <span>{currentInstances} TB</span>

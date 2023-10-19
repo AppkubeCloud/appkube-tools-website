@@ -10,7 +10,8 @@ class FinalImpact extends Component {
   }
 
   renderOptimizationbreakdown = () => {
-    const { initCalculations, newCalculations } = this.props;
+    const { initCalculations, newCalculations, modifiedComponentsData } =
+      this.props;
     const { componentsData } = this.state;
     const JSX = [];
     componentsData.startingScenario.costComponents.map((item, index) => {
@@ -44,7 +45,10 @@ class FinalImpact extends Component {
                 <span className="scenario-number">{item.quantity}</span>
               </div>
               <div className="col-lg-3 col-4">
-                <span className="final-impact">150</span>
+                <span className="final-impact">
+                  {modifiedComponentsData.length &&
+                    modifiedComponentsData[index].quantity}
+                </span>
               </div>
               <div className="col-lg-3 col-4 d-none d-lg-block">
                 <button className="btn p-0">
@@ -65,7 +69,14 @@ class FinalImpact extends Component {
                 </span>
               </div>
               <div className="col-lg-3 col-4">
-                <span className="final-impact">$0.45</span>
+                <span className="final-impact">
+                  {modifiedComponentsData.length &&
+                  modifiedComponentsData[index].avgPrice ? (
+                    `$${modifiedComponentsData[index].avgPrice}`
+                  ) : (
+                    <></>
+                  )}
+                </span>
               </div>
               <div className="col-lg-3 col-4 d-none d-lg-block">
                 <button
