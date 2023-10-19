@@ -104,6 +104,7 @@ class Managed extends Component {
     } = this.state;
     let { data, instancesBarWidth, priceBarWidth, totalBarWidth, totalCost } =
       this.state;
+    this.props.setCalcUnits(optimizeAmounts, item, checked, "managed");
     let calcUnit = optimizeAmounts[item].amount;
     let newInstances;
     let newPrice;

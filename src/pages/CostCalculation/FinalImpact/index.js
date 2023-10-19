@@ -9,9 +9,28 @@ class FinalImpact extends Component {
     };
   }
 
+  renderOptimizationButtons = (optimizations) => {
+    const JSX = [];
+    for (const property in optimizations) {
+      JSX.push(
+        <button className="btn p-0">
+          <i className="fa-regular fa-circle-xmark"></i>
+          <span className="utilize-optimization">
+            {optimizations[property].title}
+          </span>
+        </button>
+      );
+    }
+    return JSX;
+  };
+
   renderOptimizationbreakdown = () => {
-    const { initCalculations, newCalculations, modifiedComponentsData } =
-      this.props;
+    const {
+      initCalculations,
+      newCalculations,
+      modifiedComponentsData,
+      activeOptimizations,
+    } = this.props;
     const { componentsData } = this.state;
     const JSX = [];
     componentsData.startingScenario.costComponents.map((item, index) => {
@@ -51,12 +70,16 @@ class FinalImpact extends Component {
                 </span>
               </div>
               <div className="col-lg-3 col-4 d-none d-lg-block">
-                <button className="btn p-0">
+                {activeOptimizations[item.component.toLowerCase()] &&
+                  this.renderOptimizationButtons(
+                    activeOptimizations[item.component.toLowerCase()]
+                  )}
+                {/* <button className="btn p-0">
                   <i className="fa-regular fa-circle-xmark"></i>
                   <span className="utilize-optimization">
                     Utilize spotinstances
                   </span>
-                </button>
+                </button> */}
               </div>
             </div>
             <div className="row mt-1">

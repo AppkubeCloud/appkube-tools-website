@@ -22,6 +22,7 @@ class CostCalculationTemplate extends Component {
         JSON.stringify(data.startingScenario.costComponents)
       ),
       modifiedComponentsData: [],
+      activeOptimizations: {},
     };
   }
 
@@ -104,10 +105,34 @@ class CostCalculationTemplate extends Component {
           return item;
         });
       }
-
       this.setState({ modifiedComponentsData });
     }
     this.setState({ newCalculations });
+  };
+
+  setCalcUnits = (allOptimzations, currentOptimization, enabled, component) => {
+    let { activeOptimizations } = this.state;
+    if (enabled) {
+      if (
+        Object.keys(activeOptimizations).length &&
+        activeOptimizations[component]
+      ) {
+        activeOptimizations[component][currentOptimization] =
+          allOptimzations[currentOptimization];
+      } else {
+        activeOptimizations = {
+          ...activeOptimizations,
+          [component]: {
+            [currentOptimization]: allOptimzations[currentOptimization],
+          },
+        };
+      }
+    } else {
+      if (Object.keys(activeOptimizations).length) {
+        delete activeOptimizations[component][currentOptimization];
+      }
+    }
+    this.setState({ activeOptimizations });
   };
 
   render() {
@@ -117,6 +142,7 @@ class CostCalculationTemplate extends Component {
       newCalculations,
       currentOptimzeTab,
       modifiedComponentsData,
+      activeOptimizations,
     } = this.state;
     return (
       <>
@@ -381,6 +407,8 @@ class CostCalculationTemplate extends Component {
                     calculateNewCosts={this.calculateNewCosts}
                     currentOptimzeTab={currentOptimzeTab}
                     setCurrentOptimzationTab={this.setCurrentOptimzationTab}
+                    setCalcUnits={this.setCalcUnits}
+                    activeOptimizations={activeOptimizations}
                   />
                 </div>
                 <div
@@ -405,6 +433,7 @@ class CostCalculationTemplate extends Component {
                     setCurrentTab={this.setCurrentTab}
                     setCurrentOptimzationTab={this.setCurrentOptimzationTab}
                     modifiedComponentsData={modifiedComponentsData}
+                    activeOptimizations={this.state.activeOptimizations}
                   />
                 </div>
               </div>
