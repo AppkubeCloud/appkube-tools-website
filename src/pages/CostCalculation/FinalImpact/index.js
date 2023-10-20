@@ -9,11 +9,16 @@ class FinalImpact extends Component {
     };
   }
 
-  renderOptimizationButtons = (optimizations) => {
+  renderOptimizationButtons = (optimizations, component) => {
     const JSX = [];
     for (const property in optimizations) {
       JSX.push(
-        <button className="btn p-0">
+        <button
+          className="btn p-0"
+          onClick={() =>
+            this.props.removeSelectedCalcUnits(property, component)
+          }
+        >
           <i className="fa-regular fa-circle-xmark"></i>
           <span className="utilize-optimization">
             {optimizations[property].title}
@@ -72,14 +77,9 @@ class FinalImpact extends Component {
               <div className="col-lg-3 col-4 d-none d-lg-block">
                 {activeOptimizations[item.component.toLowerCase()] &&
                   this.renderOptimizationButtons(
-                    activeOptimizations[item.component.toLowerCase()]
+                    activeOptimizations[item.component.toLowerCase()],
+                    item.component.toLowerCase()
                   )}
-                {/* <button className="btn p-0">
-                  <i className="fa-regular fa-circle-xmark"></i>
-                  <span className="utilize-optimization">
-                    Utilize spotinstances
-                  </span>
-                </button> */}
               </div>
             </div>
             <div className="row mt-1">

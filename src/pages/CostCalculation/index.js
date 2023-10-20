@@ -135,6 +135,12 @@ class CostCalculationTemplate extends Component {
     this.setState({ activeOptimizations });
   };
 
+  removeSelectedCalcUnits = (property, component) => {
+    let { activeOptimizations } = this.state;
+    delete activeOptimizations[component][property];
+    this.setState({ activeOptimizations });
+  };
+
   render() {
     const {
       currentTab,
@@ -142,7 +148,6 @@ class CostCalculationTemplate extends Component {
       newCalculations,
       currentOptimzeTab,
       modifiedComponentsData,
-      activeOptimizations,
     } = this.state;
     return (
       <>
@@ -408,7 +413,6 @@ class CostCalculationTemplate extends Component {
                     currentOptimzeTab={currentOptimzeTab}
                     setCurrentOptimzationTab={this.setCurrentOptimzationTab}
                     setCalcUnits={this.setCalcUnits}
-                    activeOptimizations={activeOptimizations}
                   />
                 </div>
                 <div
@@ -434,6 +438,7 @@ class CostCalculationTemplate extends Component {
                     setCurrentOptimzationTab={this.setCurrentOptimzationTab}
                     modifiedComponentsData={modifiedComponentsData}
                     activeOptimizations={this.state.activeOptimizations}
+                    removeSelectedCalcUnits={this.removeSelectedCalcUnits}
                   />
                 </div>
               </div>

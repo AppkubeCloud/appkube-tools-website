@@ -83,7 +83,6 @@ class OptimizationOptions extends Component {
               setFinalImpactTabActive={this.props.setFinalImpactTabActive}
               setNewCosts={this.setNewCosts}
               setCalcUnits={this.props.setCalcUnits}
-              activeOptimizations={this.props.activeOptimizations}
             />
           </div>
         );

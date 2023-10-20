@@ -54,9 +54,8 @@ class Compute extends Component {
   handleShow = () => this.setState({ show: true });
 
   calculateChange = (e, item) => {
-    const { checked } = e.target;
+    let { checked } = e.target;
     const {
-      optimizeAmounts,
       currentInstances,
       currentPrice,
       calculatedAmount,
@@ -64,8 +63,14 @@ class Compute extends Component {
       originalPrice,
       originalCalculatedAmount,
     } = this.state;
-    let { data, instancesBarWidth, priceBarWidth, totalBarWidth, totalCost } =
-      this.state;
+    let {
+      data,
+      instancesBarWidth,
+      priceBarWidth,
+      totalBarWidth,
+      totalCost,
+      optimizeAmounts,
+    } = this.state;
     this.props.setCalcUnits(optimizeAmounts, item, checked, "compute");
     let calcUnit = optimizeAmounts[item].amount;
     let newInstances;
