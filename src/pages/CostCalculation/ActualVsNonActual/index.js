@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Pie, Bar } from "react-chartjs-2";
+import GaugeChart from "react-gauge-chart";
 
 class ActualVsNonActual extends Component {
   constructor(props) {
@@ -87,25 +88,78 @@ class ActualVsNonActual extends Component {
                 </label>
               </div>
             </div>
-            <div style={{ paddingLeft: "50px" }}>
-              <div className="pie-chart">
-                <Pie data={this.state.data} options={this.state.options} />
-              </div>
+            <div className="pie-chart">
+              <Pie data={this.state.data} options={this.state.options} />
             </div>
           </div>
           <div className="card charts">
-            <div style={{ paddingLeft: "50px" }}>
-              <div className="bar-chart">
-                <Bar
-                  data={this.state.barData}
-                  options={{
-                    scales: {
-                      y: {
-                        beginAtZero: true,
-                      },
+            <div className="bar-chart">
+              <Bar
+                data={this.state.barData}
+                options={{
+                  scales: {
+                    y: {
+                      beginAtZero: true,
                     },
-                  }}
+                  },
+                }}
+              />
+            </div>
+          </div>
+          <div className="card speed-charts">
+            <div className="row">
+              <div className="col-5">
+                <span className="title d-block">Before Appkube</span>
+                <p className="mb-0 d-block">
+                  Donut charts are ideal for comparing proportions of a whole.{" "}
+                </p>
+                <div className="mt-2 d-block">
+                <GaugeChart
+                  id="gauge-chart5"
+                  nrOfLevels={420}
+                  arcsLength={[0.2, 0.3]}
+                  colors={["#991BFA", "#FF708B"]}
+                  percent={0.37}
+                  arcPadding={0.02}
+                  arcWidth={0.06}
+                  textColor="#383874"
                 />
+                </div>
+              </div>
+              <div className="col-5">
+                <span className="title d-block">Before Appkube</span>
+                <p className="mb-0 d-block">
+                  Donut charts are ideal for comparing proportions of a whole.{" "}
+                </p>
+                <div className="mt-2 d-block">
+                <GaugeChart
+                  id="gauge-chart5"
+                  nrOfLevels={420}
+                  arcsLength={[0.2, 0.3]}
+                  colors={["#991BFA", "#FF708B"]}
+                  percent={0.37}
+                  arcPadding={0.02}
+                  arcWidth={0.06}
+                  textColor="#383874"
+                />
+                </div>
+              </div>
+              <div className="col-2">
+                <div className="form-check form-switch d-flex align-items-center">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="flexSwitchCheckDefault"
+                    defaultChecked
+                  />
+                  <label
+                    className="form-check-label"
+                    htmlFor="flexSwitchCheckDefault"
+                  >
+                    Applied
+                  </label>
+                </div>
               </div>
             </div>
           </div>
